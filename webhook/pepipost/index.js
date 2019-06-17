@@ -1,0 +1,56 @@
+const express = require('express');
+const router = express.Router();
+const axios = require('axios');
+//const Log = require('stark/utils/log');
+
+router.post('/espcallback/', async (req, res) => {
+    console.log('Pepipost Email -', req.body);
+    //Log.L(Log.I, 'Pepipost Email -', req.body);
+    try {
+        var webhookData = req.body;
+        console.log('Pepipost Email -', webhookData);
+        //Log.L(Log.I, 'Pepipost Email -', webhookData);
+        if (typeof (webhookData) == 'object') {
+            webhookData.forEach(function (each) {
+                if (each['EVENT'] == "sent" || each['EVENT'] == "bounced" || each['EVENT'] == "unsubscribed") {
+                    try {
+                        var cmp_data = each['X-APIHEADER'];
+                        var campaign_data = JSON.parse(cmp_data);
+                        var vid = campaign_data.vid;
+                        var comp_id = campaign_data.comp_id;
+                        var camp_data = new Object(campaign_data.custom_params);
+                        var event = "_email_" + (each['EVENT'] == 'sent' ? 'delivered' : each['EVENT']);
+                        var _check_bounce = (event == '_email_bounced' ? 'true' : 'false');
+                        if (_check_bounce == 'true') {
+                            camp_data['bounce_type'] = each['BOUNCE_TYPE']
+                            camp_data['bounce_reason'] = each['BOUNCE_REASON']
+                        }
+                        var url = "http://evbk.gamooga.com/ev/?c=" + comp_id + "&v=" + vid + "&e=" + event
+                        Object.entries(camp_data).forEach(
+                            ([key, value]) => url = url + "&ky=" + key + "&vl=" + value + "&tp=s"
+                        );
+                        axios.get(url).then(function (response) {
+                          }).catch(function (error) {
+                            console.log(comp_id,'Pepipost esp -',error);
+                            //Log.L(Log.E, comp_id,'Pepipost esp -',error);
+                          });
+                    } catch (err) {
+                        console.log(comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
+                        //Log.L(Log.E, comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
+                        res.writeHead(200);
+                        res.end("ERROR");
+                    }
+                }
+            })
+        }
+        res.writeHead(200);
+        res.end("OK");
+    } catch (err) {
+        console.log('Pepipost - Error in Webhook from Pepipost \n%s', err);
+        //Log.L(Log.E, 'Pepipost - Error in Webhook from Pepipost \n%s', err);
+        res.writeHead(200);
+        res.end("ERROR");
+    }
+});
+
+module.exports = router;
