@@ -1,4 +1,4 @@
-let express = require('express');
+let express = require("express");
 let router = express.Router();
 
 const awswebhook = require('./aws');
@@ -9,6 +9,7 @@ const netcorewebhook = require('./netcore');
 const mailkootwebhook = require('./mailkoot');
 const exotelwebhook = require('./exotel');
 const falconidewebhook = require('./falconide');
+const titanwebhook = require('./titan');
 
 router.use('/aws', awswebhook);
 router.use('/valuefirst', valuefirstwebhook);
@@ -18,5 +19,6 @@ router.use('/netcore', netcorewebhook);
 router.use('/mailkoot', mailkootwebhook);
 router.use('/exotel', exotelwebhook);
 router.use('/falconide', falconidewebhook);
+router.use('/titan', titanwebhook);
 
 module.exports = router;
