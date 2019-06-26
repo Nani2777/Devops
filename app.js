@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 // none is used as we don't want to allow file uploads for now
 app.use(multer().none());
 
-const httpPort = 15000;
+const httpPort = process.env.PORT||15000;
 
 console.log('Creating http server');
 httpServer = http.createServer(app);
