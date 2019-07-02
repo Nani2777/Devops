@@ -11,9 +11,9 @@ const exotelwebhook = require('./exotel');
 const falconidewebhook = require('./falconide');
 const titanwebhook = require('./titan');
 const implwebhook = require('./testapi');
-const logger = require('../config/winston');
+const logg = require('../config/winston');
 
-logger.errorLog.info('Testing');
+
 
 
 router.use('/aws', awswebhook);
