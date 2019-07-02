@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+//const express = require('express');
+//const router = express.Router();
 var appRoot = require('app-root-path');
 var winston = require('winston');
 
@@ -23,15 +23,15 @@ var options = {
 };
 
 // instantiate a new Winston Logger with the settings defined above
-/*var logger = new winston.Logger({
+var logger = winston.createLogger({
   transports: [
     new winston.transports.File(options.file),
     new winston.transports.Console(options.console)
   ],
   exitOnError: false, // do not exit on handled exceptions
-});*/
+});
 
-module.exports = function () {
+/*module.exports = function () {
 
     const files = new winston.transports.File(ptions.file);
     const myconsole = new winston.transports.Console(options.console);
@@ -39,14 +39,14 @@ module.exports = function () {
     winston.add(myconsole);
     winston.add(files);
   
-  }
+  }*/
 
 // create a stream object with a 'write' function that will be used by `morgan`
-/*logger.stream = {
+logger.stream = {
   write: function(message, encoding) {
     // use the 'info' log level so the output will be picked up by both transports (file and console)
     logger.info(message);
   },
-};*/
+};
 
-module.exports = router;
+module.exports = logger;
