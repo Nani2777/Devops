@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 //const Log = require('stark/utils/log');
 
-app.post('/implwebhook', function (req, res) {
+router.post('/implwebhook', function (req, res) {
     console.log('chat logs');
     console.log(req.body);
     console.log(req.query);

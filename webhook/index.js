@@ -10,6 +10,7 @@ const mailkootwebhook = require('./mailkoot');
 const exotelwebhook = require('./exotel');
 const falconidewebhook = require('./falconide');
 const titanwebhook = require('./titan');
+const implwebhook = require('./testapi');
 
 router.use('/aws', awswebhook);
 router.use('/valuefirst', valuefirstwebhook);
@@ -20,5 +21,6 @@ router.use('/mailkoot', mailkootwebhook);
 router.use('/exotel', exotelwebhook);
 router.use('/falconide', falconidewebhook);
 router.use('/titan', titanwebhook);
+router.use('/testapi', implwebhook);
 
 module.exports = router;
