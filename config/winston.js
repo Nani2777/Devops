@@ -49,4 +49,7 @@ logger.stream = {
   },
 };
 
-module.exports = logger;
+module.exports = {
+  errorLog: errorLog,
+  accessLog: accessLog
+};
