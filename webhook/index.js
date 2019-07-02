@@ -11,9 +11,6 @@ const exotelwebhook = require('./exotel');
 const falconidewebhook = require('./falconide');
 const titanwebhook = require('./titan');
 const implwebhook = require('./testapi');
-const logg = require('../config/winston');
-
-
 
 
 router.use('/aws', awswebhook);
