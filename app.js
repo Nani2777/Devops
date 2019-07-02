@@ -5,7 +5,7 @@ const multer = require('multer');
 const apiRoutes = require('./router');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-var winston = require('./config/winston')
+var winston = require('./config/winston');
 
 app.use(cors());
 // parse application/json
@@ -27,6 +27,6 @@ httpServer.listen(httpPort, () => {
 });
 
 app.use('/gamooga-esp', apiRoutes);
-app.use(morgan('combined', { stream: winston.stream }));
+//app.use(morgan('combined', { stream: winston.stream }));
 
 module.exports = app;
