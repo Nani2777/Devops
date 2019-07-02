@@ -13,7 +13,7 @@ router.post('/espcallback', function(req, res) {
       let EventData = WebhookData.split(':');
       let comp_id = EventData[0];
       let visid = EventData[1];
-
+      
       let event = `_email_${request['EVENT'] == 'sent' ? 'delivered' : request['EVENT']}`;
 
       let data = new Object({
