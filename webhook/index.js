@@ -11,7 +11,6 @@ const exotelwebhook = require('./exotel');
 const falconidewebhook = require('./falconide');
 const titanwebhook = require('./titan');
 const implwebhook = require('./testapi');
-const logger = require('./logs')();
 
 router.use('/aws', awswebhook);
 router.use('/valuefirst', valuefirstwebhook);
