@@ -14,7 +14,7 @@ router.post('/implwebhook', function (req, res) {
     //Logger.info(req.query);
     //Logger.info(req.params);
     //Logger.info(req.headers);
-    logger.log('info','Hello, logs!');
+    //logger.log('info','Hello, logs!');
     winston.console.error('hi');
     winston.info('hi');
     console.log(req.body);
