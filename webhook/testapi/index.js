@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const winston = require('winston')
 //const Log = require('stark/utils/log');
 
 router.post('/implwebhook', function (req, res) {
@@ -13,8 +14,7 @@ router.post('/implwebhook', function (req, res) {
     //Logger.info(req.query);
     //Logger.info(req.params);
     //Logger.info(req.headers);
-    System.err.println("Hello, logs!");
-    System.out.println("Hello, logs!");
+    winston.log('info','Hello, logs!');
     //console.log("req", req);
     res.writeHead(200);
     res.end("OK");
