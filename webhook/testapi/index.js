@@ -25,9 +25,9 @@ router.post('/implwebhook', function (req, res) {
   router.get('/implwebhook', function (req, res) {
     console.log('chat logs');
     console.log(req.body);
-    //console.log(req.query);
-    //console.log(req.params);
-    //console.log(req.headers);
+    console.log(req.query);
+    console.log(req.params);
+    console.log(req.headers);
     //Logger.info(req.body);
     //Logger.info(req.query);
     //Logger.info(req.params);
