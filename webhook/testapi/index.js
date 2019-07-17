@@ -6,7 +6,7 @@ var winston = require('../../config/winston');
 
 //app.use(morgan('combined', { stream: winston.stream }));
 router.post('/implwebhook', function (req, res) {
-    console.log('chat logs');
+    console.log('chat post logs');
     console.log(req.body);
     //console.log(req.query);
     //console.log(req.params);
@@ -23,7 +23,7 @@ router.post('/implwebhook', function (req, res) {
   });
 
   router.get('/implwebhook', function (req, res) {
-    console.log('chat logs');
+    console.log('chat get logs');
     console.log(req.body);
     console.log(req.query);
     console.log(req.params);
