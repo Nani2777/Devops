@@ -24,10 +24,11 @@ router.post('/implwebhook', function (req, res) {
 
   router.get('/implwebhook', function (req, res) {
     console.log('chat get logs');
-    console.log(req.body);
+    //console.log(req.body);
     console.log(req.query);
-    console.log(req.params);
+    //console.log(req.params);
     console.log(req.headers);
+    winston.info(req.headers);
     //Logger.info(req.body);
     //Logger.info(req.query);
     //Logger.info(req.params);
