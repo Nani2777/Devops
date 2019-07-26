@@ -61,13 +61,13 @@ router.post('/implwebhook', function (req, res) {
           }
         )*/
       }
-      res.writeHead(200);
+      //res.writeHead(200);
       res.end("OK");
     } catch(err){
       console.log('Oracle \n%s', err)
     }
-    res.writeHead(200);
-    res.end("OK");
+    //res.writeHead(200);
+    //res.end("OK");
   });
 
 module.exports = router;
