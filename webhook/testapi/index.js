@@ -36,6 +36,19 @@ router.post('/implwebhook', function (req, res) {
     winston.error('error');
     winston.info('working'); 
     console.log(req.body);
+    try {
+      var webhookData = req.query;
+      console.log('Oracle Email -', webhookData);
+      if(typeof(webhookData) == 'object'){
+        webhookData.forEach(function(each){
+          console.log(each);
+        })
+      }
+      res.writeHead(200);
+      res.end("OK");
+    } catch(err){
+      console.log('Oracle \n%s', err)
+    }
     res.writeHead(200);
     res.end("OK");
   });
