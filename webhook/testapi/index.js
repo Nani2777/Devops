@@ -53,7 +53,7 @@ router.post('/implwebhook', function (req, res) {
         console.log('Final----',comp_id,custom_params)
         var event = 'test_oracle'
         var url = "http://evbk.gamooga.com/ev/?c=" + comp_id + "&v=" + vid + "&e=" + event
-        Object.entries(complete_data).forEach(
+        Object.entries(custom_params).forEach(
           ([key,value]) => {
             if(key != 'cmpid' && key != 'vid'){
               console.log(key,value)
