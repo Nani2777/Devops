@@ -57,6 +57,7 @@ router.post('/implwebhook', function (req, res) {
             if(key != 'cmpid' && key != 'vid'){
               console.log(key,value)
               url = url + '&ky=' + key + '&vl=' + value + '&tp=s'
+              console.log(url);
             }
           }
         )
