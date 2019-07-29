@@ -51,7 +51,7 @@ router.post('/implwebhook', function (req, res) {
         var comp_id = '107a3b41-1aa3-45c6-a324-f0399a2aa2af'
         var vid = custom_params['vid']
         console.log('Final----',comp_id,custom_params)
-        /*var url = "http://evbk.gamooga.com/ev/?c=" + comp_id + "&v=" + vid + "&e=" + event
+        var url = "http://evbk.gamooga.com/ev/?c=" + comp_id + "&v=" + vid + "&e=" + event
         Object.entries(complete_data).forEach(
           ([key,value]) => {
             if(key != 'cmpid' && key != 'vid'){
@@ -59,7 +59,7 @@ router.post('/implwebhook', function (req, res) {
               url = url + '&ky=' + key + '&vl=' + value + '&tp=s'
             }
           }
-        )*/
+        )
       }
       //res.writeHead(200);
       res.end("OK");
