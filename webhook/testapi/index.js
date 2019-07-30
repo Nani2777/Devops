@@ -52,16 +52,16 @@ router.post('/implwebhook', function (req, res) {
         var vid = custom_params['vid']
         console.log('Final----',comp_id,custom_params)
         var event = 'test_oracle'
-        var url = "http://evbk.gamooga.com/ev/?c=" + comp_id + "&v=" + vid + "&e=" + event
+        var url = `http://evbk.gamooga.com/ev/?c=${comp_id}&v=${vid}&e=${event}&ky=email&vl=${webhookData.email}&tp=s&ky=bouncerule&vl=${webhookData.bouncerule}&tp=s&ky=bouncetype&vl=${webhookData.bouncetype}&tp=s`
         Object.entries(custom_params).forEach(
           ([key,value]) => {
             if(key != 'cmpid' && key != 'vid'){
               console.log(key,value)
               url = url + '&ky=' + key + '&vl=' + value + '&tp=s'
-              console.log(url);
             }
           }
         )
+        console.log(url);
         axios.get(url).then(function(response) {
           console.log(response.statusText);
         })
@@ -74,8 +74,6 @@ router.post('/implwebhook', function (req, res) {
     } catch(err){
       console.log('Oracle \n%s', err)
     }
-    //res.writeHead(200);
-    //res.end("OK");
   });
 
 module.exports = router;
