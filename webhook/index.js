@@ -11,7 +11,7 @@ const exotelwebhook = require('./exotel');
 const falconidewebhook = require('./falconide');
 const titanwebhook = require('./titan');
 const implwebhook = require('./testapi');
-const oraclewebhook = require('./oracle_dyn');
+const oraclewebhook = require('./oracledyn');
 
 
 router.use('/aws', awswebhook);
@@ -24,6 +24,6 @@ router.use('/exotel', exotelwebhook);
 router.use('/falconide', falconidewebhook);
 router.use('/titan', titanwebhook);
 router.use('/testapi', implwebhook);
-router.use('/oracle_dyn', oraclewebhook);
+router.use('/oracledyn', oraclewebhook);
 
 module.exports = router;
