@@ -8,8 +8,8 @@ router.get('/espcallback/', function (req, res) {
     console.log(req.query);
     console.log(req.params);
     console.log(req.headers);
-    winston.error('error');
-    winston.info('working'); 
+    //winston.error('error');
+    //winston.info('working'); 
     console.log(req.body);
     try {
       var webhookData = req.query;
@@ -48,6 +48,7 @@ router.get('/espcallback/', function (req, res) {
       res.end("OK");
     } catch(err){
       console.log('Oracle \n%s', err)
+      res.end("ERROR");
     }
   });
 
