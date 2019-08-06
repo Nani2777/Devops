@@ -87,12 +87,12 @@ router.get('/espcallback/bounce/', function (req, res) {
           }
         )
         console.log(url);
-        axios.get(url).then(function(response) {
+        /*axios.get(url).then(function(response) {
           console.log(response.statusText);
         })
         .catch(function(error) {
           console.log(error);
-        });
+        });*/
       }
       //res.writeHead(200);
       res.end("OK");
@@ -137,12 +137,12 @@ router.get('/espcallback/bounce/', function (req, res) {
           }
         )
         console.log(url);
-        axios.get(url).then(function(response) {
+        /*axios.get(url).then(function(response) {
           console.log(response.statusText);
         })
         .catch(function(error) {
           console.log(error);
-        });
+        });*/
       }
       //res.writeHead(200);
       res.end("OK");
