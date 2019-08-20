@@ -32,22 +32,25 @@ router.post('/leadapi/', async (req, res) => {
       console.log(url);
       axios
         .get(url)
-        .then(function(response) {})
+        .then(function(response) {
+          if (response.status == 200) {
+            res.send(200).json(custom_params);
+          }
+        })
         .catch(function(error) {
           console.log(error);
         });
     } catch (err) {
       console.log('Error in Webhook from Gamooga Event API', err);
       res.writeHead(200);
-      res.end('ERROR');
+      res.end('ERROR in axios call');
     }
   } catch (err) {
-    console.log('Falconide Error in Webhook from object \n%s', err);
-
+    console.log('Titan response Error in Webhook \n%s', err);
     res.writeHead(200);
     res.end('ERROR');
   }
-  res.end('OK');
+  //res.end('OK');
 });
 
 module.exports = router;
