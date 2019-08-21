@@ -77,7 +77,7 @@ router.post('/wpsmscallback/', async (req, res) => {
                 details['destAddr'] = each.destAddr,
                 details['errorCode'] = each.errorCode,
                 details['event'] = 'whatsapp_'+evname,
-                details['server'] = 'js1in1.gamooga.com'
+                details['server'] = 'js1ijh.gamooga.com'
                 //console.log([details]);
                 eventpush(details);
                 //}

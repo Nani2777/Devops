@@ -21,6 +21,8 @@ const eventpush = function(data){
         });
       } catch (e){
         console.log("Error in incoming data from value first", e);
+        res.writeHead(200);
+        res.end("ERROR");
       }
 }
 
