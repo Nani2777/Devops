@@ -200,7 +200,7 @@ router.post('/implwebhook', async (req, res) => {
         exeobj['visid']= exe[0],
         exeobj['cp_id']= exe[1],
         exeobj['tpid']= exe[2]
-        console.log(exeobj.visid);
+        //console.log(exeobj.visid);
         let details={};
         details['channel'] = each.channel,
         details['cause'] = each.cause,
@@ -211,7 +211,7 @@ router.post('/implwebhook', async (req, res) => {
         details['vid'] = exeobj.visid,
         details['tpid'] = exeobj.tpid,
         details['event'] = 'whatsapp_'+evname
-        console.log([details]);
+        //console.log([details]);
         eventpush(details);
         }
     });
