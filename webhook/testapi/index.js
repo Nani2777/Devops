@@ -192,25 +192,21 @@ router.post('/implwebhook', async (req, res) => {
     console.log(wtappsms);
     wtappsms.forEach(function (each) {
       //if (each['eventType'] == "READ" || each['eventType'] == "DELIVERED" || each['eventType'] == "SENT"){
-        let compid = "107a3b41-1aa3-45c6-a324-f0399a2aa2af";
         let eve = each.eventType;
         let exe = each.extra.split(',');
-        let evname = eve.toLowerCase();
-        let exeobj={};
-        exeobj['visid']= exe[0],
-        exeobj['cp_id']= exe[1],
-        exeobj['tpid']= exe[2]
+        let evname = eve.toLowerCase();        
         //console.log(exeobj.visid);
         let details={};
+        details['compid']= exe[0],
+        details['vid']= exe[1],
+        details['cp_id']= exe[2],
+        details['tpid']= exe[3],
         details['channel'] = each.channel,
         details['cause'] = each.cause,
         details['destAddr'] = each.destAddr,
         details['errorCode'] = each.errorCode,
-        details['compid'] = compid,
-        details['cp_id'] = exeobj.cp_id,
-        details['vid'] = exeobj.visid,
-        details['tpid'] = exeobj.tpid,
-        details['event'] = 'whatsapp_'+evname
+        details['event'] = 'whatsapp_'+evname,
+        details['server'] = 'js1in1.gamooga.com'
         //console.log([details]);
         eventpush(details);
         //}

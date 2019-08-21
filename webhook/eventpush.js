@@ -1,10 +1,10 @@
 const axios = require('axios');
 
 const eventpush = function(data){
-    var url = `http://evbk.gamooga.com/ev/?c=${data.compid}&v=${data.vid}&e=${data.event}`
+    var url = `http://${data.server}/ev/?c=${data.compid}&v=${data.vid}&e=${data.event}`
         Object.entries(data).forEach(
           ([key,value]) => {
-            if(key != 'compid' && key != 'vid' && key != 'event'){
+            if(key != 'compid' && key != 'vid' && key != 'event' && key != 'server'){
               //console.log(key,value)
               url = url + '&ky=' + key + '&vl=' + value + '&tp=s'
             }
