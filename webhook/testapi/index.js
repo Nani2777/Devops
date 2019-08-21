@@ -1,26 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-var morgan = require('morgan');
-var winston = require('../../config/winston');
+//var morgan = require('morgan');
+//var winston = require('../../config/winston');
 
 //app.use(morgan('combined', { stream: winston.stream }));
-router.post('/implwebhook', function (req, res) {
-    console.log('chat post logs');
-    console.log(req.body);
-    //console.log(req.query);
-    //console.log(req.params);
-    //console.log(req.headers);
-    //Logger.info(req.body);
-    //Logger.info(req.query);
-    //Logger.info(req.params);
-    //Logger.info(req.headers);
-    winston.error('error');
-    winston.info('working'); 
-    //console.log(req.body);
-    res.writeHead(200);
-    res.end("OK");
-  });
+/*router.post('/implwebhook', function (req, res) {
+  console.log('chat post logs');
+  console.log(req.body);
+  //console.log(req.query);
+  //console.log(req.params);
+  //console.log(req.headers);
+  //Logger.info(req.body);
+  //Logger.info(req.query);
+  //Logger.info(req.params);
+  //Logger.info(req.headers);
+  winston.error('error');
+  winston.info('working'); 
+  //console.log(req.body);
+  res.writeHead(200);
+  res.end("OK");
+});*/
 
   router.get('/implwebhook', function (req, res) {
     console.log('chat get logs');
@@ -183,5 +183,11 @@ router.post('/implwebhook', function (req, res) {
       console.log('Oracle \n%s', err)
     }
   });
+
+router.post('/implwebhook', async (req, res) => {
+  console.log(res.body);
+  res.writeHead(200);
+  res.end("OK");
+});
 
 module.exports = router;
