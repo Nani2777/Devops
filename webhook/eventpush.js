@@ -13,16 +13,20 @@ const eventpush = function(data){
         )
         console.log(url);
         //return url
-        axios.get(url).then(function(response) {
-          console.log(response.statusText);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
+        try{
+          axios.get(url).then(function(response) {
+            console.log(response.statusText);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+        }catch(e){
+          console.log("Error in event push", e);
+        }
       } catch (e){
         console.log("Error in incoming data from value first", e);
-        res.writeHead(200);
-        res.end("ERROR");
+        //res.writeHead(200);
+        //res.end("ERROR");
       }
 }
 
