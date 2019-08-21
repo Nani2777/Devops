@@ -10,14 +10,14 @@ const eventpush = function(data){
             }
           }
         )
-        //console.log(url);
-        return url
-        /*axios.get(url).then(function(response) {
+        console.log(url);
+        //return url
+        axios.get(url).then(function(response) {
           console.log(response.statusText);
         })
         .catch(function(error) {
           console.log(error);
-        });*/
+        });
 }
 
 module.exports = eventpush;
