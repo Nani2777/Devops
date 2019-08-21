@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 const eventpush = function(data){
+  try{
     var url = `http://${data.server}/ev/?c=${data.compid}&v=${data.vid}&e=${data.event}`
         Object.entries(data).forEach(
           ([key,value]) => {
@@ -18,6 +19,9 @@ const eventpush = function(data){
         .catch(function(error) {
           console.log(error);
         });
+      } catch (e){
+        console.log("Error in incoming data from value first", e);
+      }
 }
 
 module.exports = eventpush;
