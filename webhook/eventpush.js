@@ -5,7 +5,7 @@ const eventpush = function(data){
         Object.entries(data).forEach(
           ([key,value]) => {
             if(key != 'compid' && key != 'vid' && key != 'event'){
-              console.log(key,value)
+              //console.log(key,value)
               url = url + '&ky=' + key + '&vl=' + value + '&tp=s'
             }
           }
