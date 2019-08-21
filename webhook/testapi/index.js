@@ -191,7 +191,7 @@ router.post('/implwebhook', async (req, res) => {
   if (typeof (wtappsms) == 'object') {
     console.log(wtappsms);
     wtappsms.forEach(function (each) {
-      if (each['eventType'] == "READ" || each['eventType'] == "DELIVERED" || each['eventType'] == "SENT"){
+      //if (each['eventType'] == "READ" || each['eventType'] == "DELIVERED" || each['eventType'] == "SENT"){
         let compid = "107a3b41-1aa3-45c6-a324-f0399a2aa2af";
         let eve = each.eventType;
         let exe = each.extra.split(',');
@@ -213,7 +213,7 @@ router.post('/implwebhook', async (req, res) => {
         details['event'] = 'whatsapp_'+evname
         //console.log([details]);
         eventpush(details);
-        }
+        //}
     });
   }
   res.writeHead(200);
