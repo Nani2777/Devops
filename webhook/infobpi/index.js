@@ -5,7 +5,7 @@ const eventpush = require('../eventpush');
 
 
 router.post('/warplycallback/', function (req, res) {
-  console.log('chat post logs');
+  console.log('post logs');
   console.log(req.body);
   //console.log(req.query);
   //console.log(req.params);
@@ -20,7 +20,7 @@ router.post('/warplycallback/', function (req, res) {
 });
 
 router.get('/warplycallback/', function (req, res) {
-    console.log('chat post logs');
+    console.log('get logs');
     console.log(req.body);
     //console.log(req.query);
     //console.log(req.params);
@@ -50,7 +50,7 @@ router.post('/wasmscallback/', function (req, res) {
 });
 
 router.get('/wasmscallback/', function (req, res) {
-    console.log('post logs');
+    console.log('get logs');
     console.log(req.body);
     //console.log(req.query);
     //console.log(req.params);
