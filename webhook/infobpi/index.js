@@ -37,6 +37,7 @@ router.get('/warplycallback/', function (req, res) {
 router.post('/wasmscallback/', function (req, res) {
   console.log('post logs');
   console.log(req.body);
+  console.log('Pepipost Email -', req.body);
   //console.log(req.query);
   //console.log(req.params);
   //console.log(req.headers);
