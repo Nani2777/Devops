@@ -88,6 +88,7 @@ router.post('/esppostback/', async (req, res) => {
                                details['event'] = eventname,
                                details['server'] = 'evbk.gamooga.com'
                                eventpush(details);
+                               console.log(details, '------Sent to eventpush');
                         } catch (err) {
                             console.log(comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
                             //Log.L(Log.E, comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
