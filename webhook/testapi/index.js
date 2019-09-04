@@ -217,7 +217,7 @@ router.post('/wpsmscallback/', async (req, res) => {
       console.log("Error in incoming data from value first", e);
       res.writeHead(200);
       res.end("ERROR");
-  }
+    }
   res.writeHead(200);
   res.end("OK");
 });

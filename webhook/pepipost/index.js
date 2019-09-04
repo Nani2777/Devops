@@ -4,13 +4,13 @@ const axios = require('axios');
 //const Log = require('stark/utils/log');
 
 router.post('/espcallback/', async (req, res) => {
-    console.log('Pepipost Email -', req.body);
+console.log('Pepipost Email -', req.body);
   console.log('body',req.body);
   console.log('query',req.query);
   console.log('params',req.params);
   console.log('headers',req.headers);
     //Log.L(Log.I, 'Pepipost Email -', req.body);
-    /*try {
+    try {
         var webhookData = req.body;
         console.log('Pepipost Email -', webhookData);
         //Log.L(Log.I, 'Pepipost Email -', webhookData);
@@ -54,7 +54,7 @@ router.post('/espcallback/', async (req, res) => {
         //Log.L(Log.E, 'Pepipost - Error in Webhook from Pepipost \n%s', err);
         res.writeHead(200);
         res.end("ERROR");
-    }*/
+    }
     res.writeHead(200);
         res.end("OK");
 });

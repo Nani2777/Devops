@@ -96,3 +96,6 @@
 {"message":"::1 - - [21/Aug/2019:08:03:11 +0000] \"POST /gamooga-esp/webhook/testapi/implwebhook HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.6.0\"\n","level":"info"}
 {"message":"::1 - - [21/Aug/2019:08:05:01 +0000] \"POST /gamooga-esp/webhook/testapi/implwebhook HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.6.0\"\n","level":"info"}
 {"message":"::1 - - [21/Aug/2019:12:55:30 +0000] \"POST /gamooga-esp/webhook/testapi/implwebhook HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.6.0\"\n","level":"info"}
+{"message":"::1 - - [26/Aug/2019:10:34:16 +0000] \"POST /gamooga-esp/webhook/testapi/implwebhook HTTP/1.1\" 404 179 \"-\" \"PostmanRuntime/7.6.0\"\n","level":"info"}
+{"message":"::1 - - [26/Aug/2019:10:34:21 +0000] \"GET /gamooga-esp/webhook/testapi/implwebhook HTTP/1.1\" 500 1494 \"-\" \"PostmanRuntime/7.6.0\"\n","level":"info"}
+{"message":"::1 - - [26/Aug/2019:10:42:56 +0000] \"GET /gamooga-esp/webhook/testapi/implwebhook HTTP/1.1\" 400 1106 \"-\" \"PostmanRuntime/7.6.0\"\n","level":"info"}
