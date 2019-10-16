@@ -6,6 +6,7 @@ const axios = require('axios');
 router.get('/smscallback/', function (req, res) {
     try {
         var data = req.query;
+        console.log('saim',data,typeof(data));
         if (typeof (data) == 'object') {
             var cmp_data = data['extra'];
             var campaign_data = JSON.parse(cmp_data);
