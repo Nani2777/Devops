@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 //const Log = require('stark/utils/log');
 
-router.get('/smscallback/', function (req, res) {
+router.get('/smscallback/readurl', function (req, res) {
     try {
         var data = req.query;
         console.log('saim',data,typeof(data));
