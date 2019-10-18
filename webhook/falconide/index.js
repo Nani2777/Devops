@@ -4,11 +4,6 @@ const axios = require("axios");
 //const Log = require('stark/utils/log');
 
 router.post('/espcallback', function(req, res) {
-  console.log('Falconide Email -', req.body);
-  console.log('body',req.body);
-  console.log('query',req.query);
-  console.log('params',req.params);
-  console.log('headers',req.headers);
   try {
     let request = req.body[0];
     let ExcludeEvents = request['EVENT'];
