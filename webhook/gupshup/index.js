@@ -3,7 +3,12 @@ const router = express.Router();
 const axios = require('axios');
 //const Log = require('stark/utils/log');
 
+<<<<<<< Updated upstream
 router.get('/smscallback/readurl', function (req, res) {
+=======
+router.get('/smscallback/', function (req, res) {
+    console.log(req.query);
+>>>>>>> Stashed changes
     try {
         var data = req.query;
         console.log('saim',data,typeof(data));
