@@ -25,7 +25,7 @@ const eventpush = require('../eventpush')
 
 
 //Planetsuper heros Mailgun
-router.post('/saimmailgun', function (req, res) {
+router.post('/mailgun', function (req, res) {
   console.log('mailgun post logs');
   console.log(req.body);
   //console.log(req.query);
