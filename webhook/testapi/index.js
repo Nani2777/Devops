@@ -25,12 +25,12 @@ const eventpush = require('../eventpush')
 
 
 //Planetsuper heros Mailgun
-router.get('/mailgun', function (req, res) {
-  console.log('mailgun get logs');
+router.post('/saimmailgun', function (req, res) {
+  console.log('mailgun post logs');
   console.log(req.body);
-  console.log(req.query);
-  console.log(req.params);
-  console.log(req.headers);
+  //console.log(req.query);
+  //console.log(req.params);
+  //console.log(req.headers);
   //Logger.info(req.body);
   //Logger.info(req.query);
   //Logger.info(req.params);
@@ -42,22 +42,6 @@ router.get('/mailgun', function (req, res) {
   res.end("OK");
 });
 
-router.post('/mailgun', function (req, res) {
-  console.log('mailgun post logs');
-  console.log(req.body);
-  console.log(req.query);
-  console.log(req.params);
-  console.log(req.headers);
-  //Logger.info(req.body);
-  //Logger.info(req.query);
-  //Logger.info(req.params);
-  //Logger.info(req.headers);
-  //winston.error('error');
-  //winston.info('working'); 
-  //console.log(req.body);
-  res.writeHead(200);
-  res.end("OK");
-});
 
 router.get('/chatwebhook', function (req, res) {
   console.log('chat post logs');
