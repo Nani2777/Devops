@@ -220,8 +220,7 @@ router.get('/implwebhook/unsubscribe/', function (req, res) {
   }
 });
 
-router.post('/wpsmscallback/', async (req, res, err ) => {
-  console.log('Multer<><><><><><><><><><>',err.field)
+router.post('/wpsmscallback/', async (req, res) => {
   let wtappsms = req.body;
   console.log(typeof wtappsms);
   console.log('body<><><><><><><><><><><><>',req.body);
