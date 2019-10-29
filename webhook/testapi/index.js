@@ -224,6 +224,7 @@ router.post('/wpsmscallback/', async (req, res, err ) => {
   console.log('Multer<><><><><><><><><><>',err.field)
   let wtappsms = req.body;
   console.log(typeof wtappsms);
+  console.log('body<><><><><><><><><><><><>',req.body);
   try{
       if (typeof (wtappsms) == 'object') {
           console.log(wtappsms);
