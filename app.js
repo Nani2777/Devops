@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 }));
 // parse multipart/form-data
 // none is used as we don't want to allow file uploads for now
-app.use(multer().none());
+//app.use(multer().none());
 
 const httpPort = process.env.PORT||15000;
 
