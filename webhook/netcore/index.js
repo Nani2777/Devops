@@ -67,6 +67,11 @@ router.get('/smscallback/', async (req, res) => {
         params['mobile'] = data.mobile;
         params['delv_date']=data.delv_date;
         params['reqid']=data.reqid;
+        if(params['status']== 'Success'){
+          params['event']="_sms_delivered";
+        }else{
+          params['event']="_sms_bounced";
+        }
         if(params['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
           params['server'] = 'engageb.rsec.co.in';
         } else if(params['compid']=='fcbe3928-6512-48a6-8cb5-c8c51e100539'){
