@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const eventpush = require('../eventpush');
 //const Log = require('stark/utils/log');
 
 router.post('/smscallback/', async (req, res) => {
@@ -74,28 +75,16 @@ router.get('/smscallback/', async (req, res) => {
           params['server'] = 'evbk.gamooga.com';
         }
         console.log(params);
-        let custom_params = Object.keys(params).reduce(
-          (object, key) => {
-            if (key != 'comp_id' && key != 'vid') {
-              object[key] = params[key];
-            }
-            return object;
-          },
-          {}
-        );
-        //let Server = params.comp_id == 'fcbe3928-6512-48a6-8cb5-c8c51e100539'? 'js3in1.gamooga.com': 'evbk.gamooga.com';
-        //let url ='http://' +Server +'/ev/?c=' +params.comp_id +'&v=' +params.vid +'&e=_sms_delivered';
-        Object.entries(custom_params).forEach(
-          ([key, value]) =>
-            (url = url + '&ky=' + key + '&vl=' + value + '&tp=s')
-        );
-        console.log(url);
-        axios.get(url).then(function(response) {
-            console.log(response.statusText);
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
+        // let custom_params = Object.keys(params).reduce(
+        //   (object, key) => {
+        //     if (key != 'comp_id' && key != 'vid') {
+        //       object[key] = params[key];
+        //     }
+        //     return object;
+        //   },
+        //   {}
+        // );
+         eventpush(params);
       } else {
         console.log('jobname was not paasing while sending sms');
       }
