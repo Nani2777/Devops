@@ -53,8 +53,6 @@ router.post('/smscallback/', async (req, res) => {
 router.get('/smscallback/', async (req, res) => {
   try {
     let data = req.query;
-    console.log(typeof data);
-    console.log(typeof data);
     console.log('<><><><><>',data);
     if (typeof data == 'object') {
       if (data.jobname && data.jobname !== 'null') {
@@ -66,6 +64,7 @@ router.get('/smscallback/', async (req, res) => {
         }
         params['status'] = data.status;
         params['mobile'] = data.mobile;
+        console.log(params);
         let custom_params = Object.keys(params).reduce(
           (object, key) => {
             if (key != 'comp_id' && key != 'vid') {
