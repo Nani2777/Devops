@@ -52,7 +52,7 @@ router.post('/smscallback/', async (req, res) => {
 
 router.get('/smscallback/', async (req, res) => {
   try {
-    let data = req.query;
+    let data = req.query; 
     console.log('<><><><><>',data);
     if (typeof data == 'object') {
       if (data.jobname && data.jobname !== 'null') {
@@ -64,6 +64,15 @@ router.get('/smscallback/', async (req, res) => {
         }
         params['status'] = data.status;
         params['mobile'] = data.mobile;
+        params['delv_date']=data.delv_date;
+        params['reqid']=data.reqid;
+        if(params['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
+          params['server'] = 'engageb.rsec.co.in';
+        } else if(params['compid']=='fcbe3928-6512-48a6-8cb5-c8c51e100539'){
+          params['server'] = 'js3in1.gamooga.com';
+        }else{
+          params['server'] = 'evbk.gamooga.com';
+        }
         console.log(params);
         let custom_params = Object.keys(params).reduce(
           (object, key) => {
@@ -74,9 +83,8 @@ router.get('/smscallback/', async (req, res) => {
           },
           {}
         );
-        let Server =
-          params.comp_id == 'fcbe3928-6512-48a6-8cb5-c8c51e100539'? 'js3in1.gamooga.com': 'evbk.gamooga.com';
-        let url ='http://' +Server +'/ev/?c=' +params.comp_id +'&v=' +params.vid +'&e=_sms_delivered';
+        //let Server = params.comp_id == 'fcbe3928-6512-48a6-8cb5-c8c51e100539'? 'js3in1.gamooga.com': 'evbk.gamooga.com';
+        //let url ='http://' +Server +'/ev/?c=' +params.comp_id +'&v=' +params.vid +'&e=_sms_delivered';
         Object.entries(custom_params).forEach(
           ([key, value]) =>
             (url = url + '&ky=' + key + '&vl=' + value + '&tp=s')
