@@ -4,7 +4,7 @@ const axios = require("axios");
 const eventpush = require('../eventpush');
 //const Log = require('stark/utils/log');
 
-router.post('/smscallback/', async (req, res) => {
+router.post('/smscallback/test', async (req, res) => {
   try {
     let data = req.body;
     console.log(typeof data);
@@ -51,7 +51,7 @@ router.post('/smscallback/', async (req, res) => {
   res.end('OK');
 });
 
-router.get('/smscallback/', async (req, res) => {
+router.get('/smscallback/test', async (req, res) => {
   try {
     let data = req.query; 
     console.log('<><><><><>',data);
