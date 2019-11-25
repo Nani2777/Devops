@@ -30,8 +30,13 @@ router.post('/espcallback', function(req, res) {
         ? (data['bounce_type'] = request['BOUNCE_TYPE'])
         : '';
 
+      let server = 'evbk.gamooga.com';
+      if(comp_id =='fcbe3928-6512-48a6-8cb5-c8c51e100539'){
+        server = 'js3in1.gamooga.com';
+      }
+
       //var url = "http://evbk.gamooga.com/ev/?c=" +comp_id +"&v=" + visid +"&e=" +event;
-      let url = `http://evbk.gamooga.com/ev/?c=${comp_id}&v=${visid}&e=${event}`;
+      let url = `http://${server}/ev/?c=${comp_id}&v=${visid}&e=${event}`;
 
       Object.entries(data).forEach(
         ([key, value]) => (url = url + `&ky=${key}&vl=${value}&tp=s`)
