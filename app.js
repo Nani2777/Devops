@@ -30,4 +30,10 @@ httpServer.listen(httpPort, () => {
 
 app.use('/gamooga-esp', apiRoutes);
 
+app.get('/ping',function(req, res){
+  res.send("pong");
+  res.writeHead(200);
+  res.end("OK");
+})
+
 module.exports = app;
