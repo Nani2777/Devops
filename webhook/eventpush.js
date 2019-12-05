@@ -1,5 +1,5 @@
 const axios = require('axios');
-const log = require('../../logger');
+const log = require('../logger');
 
 const eventpush = function(data){
   try{
