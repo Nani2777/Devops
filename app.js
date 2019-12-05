@@ -24,6 +24,7 @@ app.use(multer().none());
 
 const httpPort = process.env.PORT||15000;
 
+
 console.log('Creating http server');
 log.info('Creating http server');
 httpServer = http.createServer(app);
@@ -33,6 +34,8 @@ httpServer.listen(httpPort, () => {
 });
 
 app.use('/gamooga-esp', apiRoutes);
+
+app.use("/logfiles", express.static(__dirname + "/logfiles"));
 
 app.get('/ping',function(req, res){
   res.send("pong");
