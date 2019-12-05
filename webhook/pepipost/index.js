@@ -5,15 +5,15 @@ const eventpush = require('../eventpush')
 //const Log = require('stark/utils/log');
 
 router.post('/espcallback/', async (req, res) => {
-console.log('Pepipost Email -', req.body);
-  console.log('body',req.body);
-  console.log('query',req.query);
-  console.log('params',req.params);
-  console.log('headers',req.headers);
+log.info('Pepipost Email -', req.body);
+  log.info('body',req.body);
+  log.info('query',req.query);
+  log.info('params',req.params);
+  log.info('headers',req.headers);
     //Log.L(Log.I, 'Pepipost Email -', req.body);
     try {
         var webhookData = req.body;
-        console.log('Pepipost Email -', webhookData);
+        log.info('Pepipost Email -', webhookData);
         //Log.L(Log.I, 'Pepipost Email -', webhookData);
         if (typeof (webhookData) == 'object') {
             webhookData.forEach(function (each) {
@@ -37,11 +37,11 @@ console.log('Pepipost Email -', req.body);
                         );
                         axios.get(url).then(function (response) {
                           }).catch(function (error) {
-                            console.log(comp_id,'Pepipost esp -',error);
+                            log.info(comp_id,'Pepipost esp -',error);
                             //Log.L(Log.E, comp_id,'Pepipost esp -',error);
                           });
                     } catch (err) {
-                        console.log(comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
+                        log.info(comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
                         //Log.L(Log.E, comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
                         res.writeHead(200);
                         res.end("ERROR");
@@ -52,7 +52,7 @@ console.log('Pepipost Email -', req.body);
         res.writeHead(200);
         res.end("OK");
     } catch (err) {
-        console.log('Pepipost - Error in Webhook from Pepipost \n%s', err);
+        log.info('Pepipost - Error in Webhook from Pepipost \n%s', err);
         //Log.L(Log.E, 'Pepipost - Error in Webhook from Pepipost \n%s', err);
         res.writeHead(200);
         res.end("ERROR");
@@ -64,7 +64,7 @@ console.log('Pepipost Email -', req.body);
 router.post('/esppostback/', async (req, res) => {
         try {
             var webhookData = req.body;
-            console.log(typeof webhookData);
+            log.info(typeof webhookData);
             if (typeof (webhookData) == 'object') {
                 webhookData.forEach(function (each) {
                         try {
@@ -88,9 +88,9 @@ router.post('/esppostback/', async (req, res) => {
                                details['event'] = eventname,
                                details['server'] = 'evbk.gamooga.com'
                                eventpush(details);
-                               console.log(details, '------Sent to eventpush');
+                               log.info(details, '------Sent to eventpush');
                         } catch (err) {
-                            console.log(comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
+                            log.info(comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
                             //Log.L(Log.E, comp_id,'Pepipost - Error in entries for the Pepipost req data', req.body);
                             res.writeHead(200);
                             res.end("ERROR");
@@ -100,7 +100,7 @@ router.post('/esppostback/', async (req, res) => {
             res.writeHead(200);
             res.end("OK");
         } catch (err) {
-            console.log('Pepipost - Error in Webhook from Pepipost \n%s', err);
+            log.info('Pepipost - Error in Webhook from Pepipost \n%s', err);
             //Log.L(Log.E, 'Pepipost - Error in Webhook from Pepipost \n%s', err);
             res.writeHead(200);
             res.end("ERROR");

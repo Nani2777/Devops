@@ -7,7 +7,7 @@ router.post('/espcallback', function(req, res) {
   try {
     let request = req.body[0];
     let ExcludeEvents = request['EVENT'];
-    console.log('testing',request);
+    log.info('testing',request);
     if (ExcludeEvents !== 'clicked' && ExcludeEvents !== 'opened') {
       let WebhookData = request['X-APIHEADER'];
       let EventData = WebhookData.split(':');
@@ -41,19 +41,19 @@ router.post('/espcallback', function(req, res) {
       Object.entries(data).forEach(
         ([key, value]) => (url = url + `&ky=${key}&vl=${value}&tp=s`)
       );
-      console.log(url);
+      log.info(url);
       axios
         .get(url)
         .then(function(response) {
-          console.log(response.statusText);
+          log.info(response.statusText);
           res.status(200).send(response.statusText);
         })
         .catch(function(error) {
-          console.log(error);
+          log.info(error);
         });
     }
   } catch (e) {
-    console.log('Something Happended in incoming request ');
+    log.info('Something Happended in incoming request ');
     res.status(200).send('ERROR');
   }
 });

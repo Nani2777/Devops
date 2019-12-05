@@ -6,7 +6,7 @@ const axios = require('axios');
 router.post('/leadapi/', async (req, res) => {
   try {
     let data = req.body;
-    console.log(typeof data);
+    log.info(typeof data);
     let comp_id = data['c'];
     let vid = data['v'];
     let event = data['e'];
@@ -23,13 +23,13 @@ router.post('/leadapi/', async (req, res) => {
       .replace(/"/g, '')
       .replace(/,/g, '&')
       .replace(/:/g, '=');
-    console.log(final_data);
+    log.info(final_data);
     try {
       let url =`http://evbk.gamooga.com/ev/?c=${comp_id}&v=${vid}&e=${event}&${final_data}`;
       /*Object.entries(custom_params).forEach(
             ([key, value]) => url = url + "&ky=" + key + "&vl=" + value + "&tp=s"
         );*/
-      console.log(url);
+      log.info(url);
       axios
         .get(url)
         .then(function(response) {
@@ -38,15 +38,15 @@ router.post('/leadapi/', async (req, res) => {
           }
         })
         .catch(function(error) {
-          console.log(error);
+          log.info(error);
         });
     } catch (err) {
-      console.log('Error in Webhook from Gamooga Event API', err);
+      log.info('Error in Webhook from Gamooga Event API', err);
       res.writeHead(200);
       res.end('ERROR in axios call');
     }
   } catch (err) {
-    console.log('Titan response Error in Webhook \n%s', err);
+    log.info('Titan response Error in Webhook \n%s', err);
     res.writeHead(200);
     res.end('ERROR');
   }

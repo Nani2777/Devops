@@ -3,9 +3,9 @@ const router = express.Router();
 const axios = require('axios');
 
 router.post('/espcallback/', function (req, res) {
-    console.log('Mailgun post logs');
-    console.log(req.query);
-    console.log('Body <><><><><><>',req.body);
+    log.info('Mailgun post logs');
+    log.info(req.query);
+    log.info('Body <><><><><><>',req.body);
 });
 
 module.exports = router;

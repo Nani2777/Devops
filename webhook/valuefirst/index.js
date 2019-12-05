@@ -37,17 +37,17 @@ router.post('/espcallback/', async (req, res) => {
                 Object.entries(custom_args).forEach(
                     ([key, value]) => url = url + "&ky=" + key + "&vl=" + value + "&tp=s"
                 );
-                console.log(url);
+                log.info(url);
                 axios.get(url).then(function (response) {
-                    console.log("Successfully data pushed to gamooga");
-                    console.log(response.statusText);
+                    log.info("Successfully data pushed to gamooga");
+                    log.info(response.statusText);
                 }).catch(function (error) {
-                    console.log(error);
+                    log.info(error);
                 });
             }
         })
     } catch (e) {
-        console.log("Error in incoming data from value first", e);
+        log.info("Error in incoming data from value first", e);
         res.writeHead(200);
         res.end("ERROR");
     }
@@ -57,16 +57,16 @@ router.post('/espcallback/', async (req, res) => {
 
 router.post('/wpsmscallback/', async (req, res) => {
     let wtappsms = req.body;
-    console.log(typeof wtappsms);
+    log.info(typeof wtappsms);
     try{
         if (typeof (wtappsms) == 'object') {
-            console.log(wtappsms);
+            log.info(wtappsms);
             wtappsms.forEach(function (each) {
             //if (each['eventType'] == "READ" || each['eventType'] == "DELIVERED" || each['eventType'] == "SENT"){
                 let eve = each.eventType;
                 let exe = each.extra.split(',');
                 let evname = eve.toLowerCase();        
-                //console.log(exeobj.visid);
+                //log.info(exeobj.visid);
                 let details={};
                 details['compid']= exe[0],
                 details['vid']= exe[1],
@@ -78,13 +78,13 @@ router.post('/wpsmscallback/', async (req, res) => {
                 details['errorCode'] = each.errorCode,
                 details['event'] = 'whatsapp_'+evname,
                 details['server'] = 'js1in1.gamooga.com'
-                //console.log([details]);
+                //log.info([details]);
                 eventpush(details);
                 //}
             });
         }
     }catch (e){
-        console.log("Error in incoming data from value first", e);
+        log.info("Error in incoming data from value first", e);
         res.writeHead(200);
         res.end("ERROR");
     }

@@ -7,7 +7,7 @@ const axios = require('axios');
 router.post('/espcallback/', function (req, res) {
   let webhookData = req.body;
   if (typeof (webhookData) == 'object') {
-    console.log(webhookData);
+    log.info(webhookData);
     if ((webhookData['event_type'] == "delivery_attempt" && webhookData["status"]=="success") || webhookData['event_type'] == "bounce_all") {
       try {
         var cmp_data = webhookData['click_tracking_id'];
@@ -24,14 +24,14 @@ router.post('/espcallback/', function (req, res) {
         Object.entries(camp_data).forEach(
           ([key, value]) => url = url + "&ky=" + key + "&vl=" + value + "&tp=s"
         );
-        console.log(url);
+        log.info(url);
         axios.get(url).then(function (response) {
-          console.log(response.statusText)
+          log.info(response.statusText)
         }).catch(function (error) {
-          console.log(error);
+          log.info(error);
         });
       } catch (err) {
-        console.log('Error in entries for the Mailkoot req data', err);
+        log.info('Error in entries for the Mailkoot req data', err);
         //Log.L(Log.E, 'Error in entries for the Mailkoot req data', err);
         res.writeHead(200);
         res.end("ERROR");

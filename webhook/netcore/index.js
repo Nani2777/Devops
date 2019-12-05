@@ -8,9 +8,9 @@ const log = require('../../logger');
 router.post('/smscallback/', async (req, res) => {
   try {
     let data = req.body;
-    console.log(typeof data);
     log.info(typeof data);
-    console.log('<><><><><>',data);
+    log.info(typeof data);
+    log.info('<><><><><>',data);
     log.info('<><><><><>',data);
     if (typeof data == 'object') {
       if (data.jobname && data.jobname !== 'null') {
@@ -35,19 +35,19 @@ router.post('/smscallback/', async (req, res) => {
           ([key, value]) =>
             (url = url + '&ky=' + key + '&vl=' + value + '&tp=s')
         );
-        console.log(url);
+        log.info(url);
         axios.get(url).then(function(response) {
-            console.log(response.statusText);
+            log.info(response.statusText);
           })
           .catch(function(error) {
-            console.log(error);
+            log.info(error);
           });
       } else {
-        console.log('jobname was not paasing while sending sms');
+        log.info('jobname was not paasing while sending sms');
       }
     }
   } catch (err) {
-    console.log('Error in entries for MOSL req data', err);
+    log.info('Error in entries for MOSL req data', err);
     res.writeHead(200);
     res.end('ERROR');
   }
@@ -57,7 +57,7 @@ router.post('/smscallback/', async (req, res) => {
 router.get('/smscallback/', async (req, res) => {
   try {
     let data = req.query; 
-    console.log('<><><><><>',data);
+    log.info('<><><><><>',data);
     log.info('<><><><><>',data);
     if (typeof data == 'object') {
       if (data.jobname && data.jobname !== 'null') {
@@ -86,7 +86,7 @@ router.get('/smscallback/', async (req, res) => {
         }else{
           params['server'] = 'evbk.gamooga.com';
         }
-        console.log(params);
+        log.info(params);
         // let custom_params = Object.keys(params).reduce(
         //   (object, key) => {
         //     if (key != 'comp_id' && key != 'vid') {
@@ -98,11 +98,11 @@ router.get('/smscallback/', async (req, res) => {
         // );
          eventpush(params);
       } else {
-        console.log('jobname was not paasing while sending sms');
+        log.info('jobname was not paasing while sending sms');
       }
     }
   } catch (err) {
-    console.log('Error in entries for NETCORE req data', err);
+    log.info('Error in entries for NETCORE req data', err);
     res.writeHead(200);
     res.end('ERROR');
   }
