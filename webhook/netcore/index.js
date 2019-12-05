@@ -58,6 +58,7 @@ router.get('/smscallback/', async (req, res) => {
   try {
     let data = req.query; 
     console.log('<><><><><>',data);
+    log.info('<><><><><>',data);
     if (typeof data == 'object') {
       if (data.jobname && data.jobname !== 'null') {
         let div = data.jobname.split(',');
