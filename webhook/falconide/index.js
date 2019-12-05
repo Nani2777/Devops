@@ -43,19 +43,19 @@ router.post('/espcallback', function(req, res) {
       Object.entries(data).forEach(
         ([key, value]) => (url = url + `&ky=${key}&vl=${value}&tp=s`)
       );
-      log.info(url);
+      //log.info(url);
       axios
         .get(url)
         .then(function(response) {
-          log.info(response.statusText);
+          //log.info(response.statusText);
           res.status(200).send(response.statusText);
         })
         .catch(function(error) {
-          log.info(error);
+          //log.info(error);
         });
     }
   } catch (e) {
-    log.info('Something Happended in incoming request ');
+    //log.info('Something Happended in incoming request ');
     res.status(200).send('ERROR');
   }
 });
