@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 //const Log = require('stark/utils/log');
+const log = require('../../logger');
 
 router.get('/smscallback/', function (req, res) {
     log.info(req.query);

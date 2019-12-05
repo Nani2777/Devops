@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 const eventpush = require('../eventpush');
+const log = require('../../logger');
 
 
 router.post('/warplycallback/', function (req, res) {

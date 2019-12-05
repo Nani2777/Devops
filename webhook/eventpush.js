@@ -1,4 +1,5 @@
 const axios = require('axios');
+const log = require('../../logger');
 
 const eventpush = function(data){
   try{
@@ -6,25 +7,25 @@ const eventpush = function(data){
         Object.entries(data).forEach(
           ([key,value]) => {
             if(key != 'compid' && key != 'vid' && key != 'event' && key != 'server'){
-              //console.log(key,value)
+              //log.info(key,value)
               url = url + '&ky=' + key + '&vl=' + value + '&tp=s'
             }
           }
         )
-        console.log(url);
+        log.info(url);
         //return url
         try{
           axios.get(url).then(function(response) {
-            console.log(response.statusText);
+            log.info(response.statusText);
           })
           .catch(function(error) {
-            console.log(error);
+            log.info(error);
           });
         }catch(e){
-          console.log("Error in event push", e);
+          log.info("Error in event push", e);
         }
       } catch (e){
-        console.log("Error in incoming data from value first", e);
+        log.info("Error in incoming data from value first", e);
         //res.writeHead(200);
         //res.end("ERROR");
       }

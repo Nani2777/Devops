@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const log = require('../../logger');
 
 router.get('/espcallback/bounce/', function (req, res) {
     log.info('chat post logs');
