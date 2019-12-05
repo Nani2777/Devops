@@ -4,7 +4,7 @@ const axios = require("axios");
 const eventpush = require('../eventpush');
 //const Log = require('stark/utils/log');
 
-router.post('/smscallback/test', async (req, res) => {
+router.post('/smscallback/', async (req, res) => {
   try {
     let data = req.body;
     console.log(typeof data);
@@ -51,7 +51,7 @@ router.post('/smscallback/test', async (req, res) => {
   res.end('OK');
 });
 
-router.get('/smscallback/test', async (req, res) => {
+router.get('/smscallback/', async (req, res) => {
   try {
     let data = req.query; 
     console.log('<><><><><>',data);
@@ -74,6 +74,9 @@ router.get('/smscallback/test', async (req, res) => {
         }
         if(params['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
           params['server'] = 'engageb.rsec.co.in';
+          if(params['status']== 'Success'){
+            params['event']="sms_delivery";
+          }
         } else if(params['compid']=='fcbe3928-6512-48a6-8cb5-c8c51e100539'){
           params['server'] = 'js3in1.gamooga.com';
         }else{
