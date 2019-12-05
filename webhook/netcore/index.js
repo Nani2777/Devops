@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 const eventpush = require('../eventpush');
 //const Log = require('stark/utils/log');
-const log = require('./logger');
+const log = require('../../logger');
 
 router.post('/smscallback/', async (req, res) => {
   try {
