@@ -8,7 +8,7 @@ router.post('/espcallback', function(req, res) {
   try {
     let request = req.body[0];
     let ExcludeEvents = request['EVENT'];
-    log.info('testing',request);
+    //log.info('testing',request);
     console.log('testing');
     if (ExcludeEvents !== 'clicked' && ExcludeEvents !== 'opened') {
       let WebhookData = request['X-APIHEADER'];
