@@ -1,6 +1,6 @@
 const opts = {
     errorEventName:'error',
-        logDirectory:'/logfiles', // NOTE: folder must exist and be writable...
+        logDirectory:'./logfiles', // NOTE: folder must exist and be writable...
         fileNamePattern:'roll-<DATE>.log',
         dateFormat:'YYYY.MM.DD'
 };
