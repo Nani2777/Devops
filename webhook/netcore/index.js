@@ -3,12 +3,15 @@ const router = express.Router();
 const axios = require("axios");
 const eventpush = require('../eventpush');
 //const Log = require('stark/utils/log');
+const log = require('./logger');
 
 router.post('/smscallback/', async (req, res) => {
   try {
     let data = req.body;
     console.log(typeof data);
+    log.info(typeof data);
     console.log('<><><><><>',data);
+    log.info('<><><><><>',data);
     if (typeof data == 'object') {
       if (data.jobname && data.jobname !== 'null') {
         let div = data.jobname.split(',');
@@ -17,7 +20,7 @@ router.post('/smscallback/', async (req, res) => {
           let fin = div[i].split(':');
           params[fin[0]] = fin[1];
         }
-        var custom_params = Object.keys(params).reduce(
+        let custom_params = Object.keys(params).reduce(
           (object, key) => {
             if (key != 'comp_id' && key != 'vid') {
               object[key] = params[key];

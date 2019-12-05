@@ -6,9 +6,11 @@ const apiRoutes = require('./router');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 var morgan = require('morgan');
-var winston = require('./config/winston');
+const log = require('./logger');
+//var winston = require('./config/winston');
 
-app.use(morgan('combined', { stream: winston.stream }));
+//app.use(morgan('combined', { stream: winston.stream }));
+app.use(morgan('combined'));
 app.use(cors());
 // parse application/json
 app.use(bodyParser.json());
@@ -23,9 +25,11 @@ app.use(multer().none());
 const httpPort = process.env.PORT||15000;
 
 console.log('Creating http server');
+log.info('Creating http server');
 httpServer = http.createServer(app);
 httpServer.listen(httpPort, () => {
   console.log('External service Provider successfully listening on port: ', httpPort);
+  log.info('External service Provider successfully listening on port: ', httpPort);
 });
 
 app.use('/gamooga-esp', apiRoutes);
