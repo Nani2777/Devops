@@ -254,7 +254,7 @@ router.post('/wpsmscallback/', async (req, res) => {
       res.writeHead(200);
       res.end("ERROR");
     }
-  res.writeHead(200);
+  //res.writeHead(200);
   res.end("OK");
 });
 
