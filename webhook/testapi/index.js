@@ -223,11 +223,11 @@ router.get('/implwebhook/unsubscribe/', function (req, res) {
 router.post('/wpsmscallback', async (req, res) => {
   let wtappsms = req.body;
   log.info(typeof wtappsms);
-  log.info('body<><><><><><><><><><><><>',req.body);
+  console.log('body<><><><><><><><><><><><>',req.body);
   try{
       if (typeof (wtappsms) == 'object') {
           log.info(wtappsms);
-          wtappsms.forEach(function (each) {
+          /*wtappsms.forEach(function (each) {
           //if (each['eventType'] == "READ" || each['eventType'] == "DELIVERED" || each['eventType'] == "SENT"){
               let eve = each.eventType;
               let exe = each.extra.split(',');
@@ -247,7 +247,7 @@ router.post('/wpsmscallback', async (req, res) => {
               //log.info([details]);
               eventpush(details);
               //}
-          });
+          });*/
       }
   }catch (e){
       log.info("Error in incoming data from value first", e);
