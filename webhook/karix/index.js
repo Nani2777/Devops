@@ -29,7 +29,7 @@ router.post('/wpsmscallback/', async (req, res) => {
               }else{
                 params['server'] = 'evbk.gamooga.com';
               }
-              var details = {...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
+              var details = {...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
               console.log(details);
               log.info(details);
               eventpush(details);
