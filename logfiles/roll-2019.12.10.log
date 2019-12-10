@@ -1,0 +1,234 @@
+11:23:10.839 INFO  Creating http server 
+11:23:10.845 INFO  External service Provider successfully listening on port: 15000 
+11:25:36.061 INFO  <><><><><>{} 
+11:25:36.061 INFO  <><><><><>{} 
+11:25:36.061 INFO  jobname was not paasing while sending sms 
+11:25:47.717 INFO  object 
+11:25:47.722 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"cp_id:9c60c5cc;cp_type:ad;cp_id:63102;tp:10713","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575952822992","date":"2019-12-10","mid":"3111010102234615000"},"notificationAttributes":{"status":"sent","reason":"Submitted to channel","code":"100"}} 
+11:48:16.336 INFO  Creating http server 
+11:48:16.343 INFO  External service Provider successfully listening on port: 15000 
+11:48:18.839 INFO  object 
+11:48:18.842 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"cp_id:9c60c5cc;cp_type:ad;cp_id:63102;tp:10713","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575952822992","date":"2019-12-10","mid":"3111010102234615000"},"notificationAttributes":{"status":"sent","reason":"Submitted to channel","code":"100"}} 
+12:17:34.820 INFO  object 
+12:17:34.821 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:18:06.712 INFO  Creating http server 
+12:18:06.718 INFO  External service Provider successfully listening on port: 15000 
+12:25:08.563 INFO  Creating http server 
+12:25:08.569 INFO  External service Provider successfully listening on port: 15000 
+12:25:14.367 INFO  Creating http server 
+12:25:14.378 INFO  External service Provider successfully listening on port: 15000 
+12:25:19.452 INFO  object 
+12:25:19.455 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:25:19.456 INFO  Error in incoming data from value firsteach is not defined
+{}
+ReferenceError: each is not defined
+    at router.post (/home/harish/Desktop/uat_implwebhook/webhook/testapi/index.js:238:25)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at /home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:47:12) 
+12:25:51.817 INFO  Creating http server 
+12:25:51.824 INFO  External service Provider successfully listening on port: 15000 
+12:26:08.913 INFO  object 
+12:26:08.918 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:26:08.918 INFO  Error in incoming data from value firsteve is not defined
+{}
+ReferenceError: eve is not defined
+    at router.post (/home/harish/Desktop/uat_implwebhook/webhook/testapi/index.js:240:28)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at /home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:47:12) 
+12:26:27.688 INFO  Creating http server 
+12:26:27.700 INFO  External service Provider successfully listening on port: 15000 
+12:26:32.046 INFO  object 
+12:26:32.052 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:26:32.053 INFO  Error in incoming data from value firsteve is not defined
+{}
+ReferenceError: eve is not defined
+    at router.post (/home/harish/Desktop/uat_implwebhook/webhook/testapi/index.js:240:28)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at /home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:47:12) 
+12:26:45.042 INFO  Creating http server 
+12:26:45.053 INFO  External service Provider successfully listening on port: 15000 
+12:26:47.932 INFO  object 
+12:26:47.938 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:26:47.939 INFO  Error in incoming data from value firsteve is not defined
+{}
+ReferenceError: eve is not defined
+    at router.post (/home/harish/Desktop/uat_implwebhook/webhook/testapi/index.js:240:28)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at /home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:47:12) 
+12:28:42.027 INFO  Creating http server 
+12:28:42.035 INFO  External service Provider successfully listening on port: 15000 
+12:28:45.025 INFO  object 
+12:28:45.029 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:28:45.030 INFO  Error in incoming data from value firsteve is not defined
+{}
+ReferenceError: eve is not defined
+    at router.post (/home/harish/Desktop/uat_implwebhook/webhook/testapi/index.js:243:28)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/layer.js:95:5)
+    at /home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/harish/Desktop/uat_implwebhook/node_modules/express/lib/router/index.js:47:12) 
+12:29:12.231 INFO  Creating http server 
+12:29:12.241 INFO  External service Provider successfully listening on port: 15000 
+12:29:17.683 INFO  object 
+12:29:17.687 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:30:01.124 INFO  Creating http server 
+12:30:01.137 INFO  External service Provider successfully listening on port: 15000 
+12:30:04.244 INFO  object 
+12:30:04.250 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:30:26.424 INFO  Creating http server 
+12:30:26.432 INFO  External service Provider successfully listening on port: 15000 
+12:30:28.562 INFO  object 
+12:30:28.568 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:31:59.934 INFO  Creating http server 
+12:31:59.942 INFO  External service Provider successfully listening on port: 15000 
+12:32:02.702 INFO  object 
+12:32:02.706 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:32:09.026 INFO  object 
+12:32:09.026 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:35:03.268 INFO  Creating http server 
+12:35:03.274 INFO  External service Provider successfully listening on port: 15000 
+12:35:06.757 INFO  Creating http server 
+12:35:06.768 INFO  External service Provider successfully listening on port: 15000 
+12:35:12.606 INFO  object 
+12:35:12.609 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:36:27.993 INFO  Creating http server 
+12:36:28.001 INFO  External service Provider successfully listening on port: 15000 
+12:36:31.790 INFO  object 
+12:36:31.796 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:39:33.318 INFO  Creating http server 
+12:39:33.328 INFO  External service Provider successfully listening on port: 15000 
+12:39:35.877 INFO  object 
+12:39:35.883 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:43:57.323 INFO  Creating http server 
+12:43:57.330 INFO  External service Provider successfully listening on port: 15000 
+12:43:59.845 INFO  object 
+12:43:59.849 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:47:59.321 INFO  Creating http server 
+12:47:59.332 INFO  External service Provider successfully listening on port: 15000 
+12:48:02.291 INFO  object 
+12:48:02.295 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+12:48:47.125 INFO  Creating http server 
+12:48:47.134 INFO  External service Provider successfully listening on port: 15000 
+12:48:58.591 INFO  Creating http server 
+12:48:58.597 INFO  External service Provider successfully listening on port: 15000 
+12:49:01.027 INFO  object 
+12:49:01.033 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+13:00:21.615 INFO  Creating http server 
+13:00:21.625 INFO  External service Provider successfully listening on port: 15000 
+13:00:27.758 INFO  object 
+13:00:27.764 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+13:01:33.287 INFO  Creating http server 
+13:01:33.294 INFO  External service Provider successfully listening on port: 15000 
+13:01:36.886 INFO  object 
+13:01:36.890 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+13:02:40.883 INFO  Creating http server 
+13:02:40.890 INFO  External service Provider successfully listening on port: 15000 
+13:02:45.458 INFO  object 
+13:02:45.464 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+13:03:15.450 INFO  Creating http server 
+13:03:15.458 INFO  External service Provider successfully listening on port: 15000 
+13:03:19.234 INFO  object 
+13:03:19.240 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+14:12:12.501 INFO  Creating http server 
+14:12:12.508 INFO  External service Provider successfully listening on port: 15000 
+14:25:03.689 INFO  Creating http server 
+14:25:03.696 INFO  External service Provider successfully listening on port: 15000 
+14:25:08.125 INFO  object 
+14:25:08.131 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+14:25:19.764 INFO  Creating http server 
+14:25:19.772 INFO  External service Provider successfully listening on port: 15000 
+14:25:24.495 INFO  object 
+14:25:24.501 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+14:31:21.078 INFO  object 
+14:31:21.078 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+14:35:48.526 INFO  Creating http server 
+14:35:48.533 INFO  External service Provider successfully listening on port: 15000 
+14:35:53.480 INFO  object 
+14:35:53.486 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+14:36:38.186 INFO  Creating http server 
+14:36:38.194 INFO  External service Provider successfully listening on port: 15000 
+14:38:37.915 INFO  object 
+14:38:37.919 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+14:53:18.916 INFO  Creating http server 
+14:53:18.923 INFO  External service Provider successfully listening on port: 15000 
+14:53:27.900 INFO  object 
+14:53:27.904 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+14:53:52.786 INFO  Creating http server 
+14:53:52.793 INFO  External service Provider successfully listening on port: 15000 
+14:53:55.954 INFO  object 
+14:53:55.958 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:08:57.434 INFO  Creating http server 
+15:08:57.440 INFO  External service Provider successfully listening on port: 15000 
+15:09:03.453 INFO  object 
+15:09:03.456 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:09:32.847 INFO  Creating http server 
+15:09:32.856 INFO  External service Provider successfully listening on port: 15000 
+15:09:36.896 INFO  object 
+15:09:36.901 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:09:54.619 INFO  Creating http server 
+15:09:54.626 INFO  External service Provider successfully listening on port: 15000 
+15:10:05.391 INFO  object 
+15:10:05.395 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:10:31.941 INFO  Creating http server 
+15:10:31.948 INFO  External service Provider successfully listening on port: 15000 
+15:10:35.000 INFO  object 
+15:10:35.009 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:12:19.118 INFO  Creating http server 
+15:12:19.124 INFO  External service Provider successfully listening on port: 15000 
+15:12:24.162 INFO  Creating http server 
+15:12:24.173 INFO  External service Provider successfully listening on port: 15000 
+15:12:28.846 INFO  object 
+15:12:28.852 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:14:53.143 INFO  Creating http server 
+15:14:53.150 INFO  External service Provider successfully listening on port: 15000 
+15:14:54.597 INFO  Creating http server 
+15:14:54.604 INFO  External service Provider successfully listening on port: 15000 
+15:15:15.671 INFO  object 
+15:15:15.675 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:15:15.677 INFO  http://evbk.gamooga.com/ev/?c=9c60c5cc-b194-48a4-8585-26205ad4e4f3&v=cbqYB_nJbC-5fP1e&e=_wpsms_read&ky=cp_type&vl=ad&tp=s&ky=cp_id&vl=63102&tp=s&ky=tpid&vl=10713&tp=s&ky=tp&vl=hr&tp=s&ky=event_type&vl=DELIVERY EVENTS&tp=s&ky=status&vl=read&tp=s&ky=reason&vl=Read by the user&tp=s&ky=channel&vl=WABA&tp=s&ky=to&vl=919492794266&tp=s 
+15:15:16.127 INFO  OK 
+15:17:06.853 INFO  Creating http server 
+15:17:06.860 INFO  External service Provider successfully listening on port: 15000 
+15:17:12.903 INFO  object 
+15:17:12.906 INFO  {"channel":"WABA","appDetails":{"type":"LIVE","id":""},"recipient":{"to":"919492794266","recipient_type":"individual","reference":{"cust_ref":"Some Customer Ref","messageTag1":"compid:9c60c5cc-b194-48a4-8585-26205ad4e4f3;vid:cbqYB_nJbC-5fP1e;cp_type:ad;cp_id:63102;tpid:10713;tp:hr","conversationId":"Some Optional Conversation ID"}},"sender":{"from":"919845315868"},"events":{"eventType":"DELIVERY EVENTS","timestamp":"1575954248559","date":"2019-12-10","mid":"3111010334555028000"},"notificationAttributes":{"status":"read","reason":"Read by the user","code":"102"}} 
+15:17:12.907 INFO  http://evbk.gamooga.com/ev/?c=9c60c5cc-b194-48a4-8585-26205ad4e4f3&v=cbqYB_nJbC-5fP1e&e=_wpsms_read&ky=cp_type&vl=ad&tp=s&ky=cp_id&vl=63102&tp=s&ky=tpid&vl=10713&tp=s&ky=tp&vl=hr&tp=s&ky=event_type&vl=DELIVERY EVENTS&tp=s&ky=status&vl=read&tp=s&ky=reason&vl=Read by the user&tp=s&ky=channel&vl=WABA&tp=s&ky=to&vl=919492794266&tp=s 
+15:17:13.246 INFO  OK 
+15:18:27.538 INFO  Creating http server 
+15:18:27.547 INFO  External service Provider successfully listening on port: 15000 
+15:19:03.169 INFO  Creating http server 
+15:19:03.178 INFO  External service Provider successfully listening on port: 15000 
+15:19:13.297 INFO  Creating http server 
+15:19:13.304 INFO  External service Provider successfully listening on port: 15000 

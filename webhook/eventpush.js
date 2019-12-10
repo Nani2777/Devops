@@ -13,6 +13,7 @@ const eventpush = function(data){
           }
         )
         log.info(url);
+        console.log(url);
         //return url
         try{
           axios.get(url).then(function(response) {
