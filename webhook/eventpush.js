@@ -3,10 +3,11 @@ const log = require('../logger');
 
 const eventpush = function(data){
   try{
-    var url = `http://${data.server}/ev/?c=${data.compid}&v=${data.vid}&e=${data.event}`
+    let compid = data.comp_id ? data.comp_id : data.compid;
+    var url = `http://${data.server}/ev/?c=${compid}&v=${data.vid}&e=${data.event}`
         Object.entries(data).forEach(
           ([key,value]) => {
-            if(key != 'compid' && key != 'vid' && key != 'event' && key != 'server'){
+            if(key != 'compid' && key != 'comp_id' && key != 'vid' && key != 'event' && key != 'server'){
               //log.info(key,value)
               url = url + '&ky=' + key + '&vl=' + value + '&tp=s'
             }

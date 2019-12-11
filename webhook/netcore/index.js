@@ -58,7 +58,6 @@ router.get('/smscallback/', async (req, res) => {
   try {
     let data = req.query; 
     log.info('<><><><><>',data);
-    log.info('<><><><><>',data);
     if (typeof data == 'object') {
       if (data.jobname && data.jobname !== 'null') {
         let div = data.jobname.split(',');
@@ -69,25 +68,7 @@ router.get('/smscallback/', async (req, res) => {
         }
         params['status'] = data.status;
         params['mobile'] = data.mobile;
-        params['delv_date']=data.delv_date;
-        params['reqid']=data.reqid;
-        if(params['status']== 'Success'){
-          params['event']="_sms_delivered";
-        }else{
-          params['event']="_sms_bounced";
-        }
-        if(params['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
-          params['server'] = 'engageb.rsec.co.in';
-          if(params['status']== 'Success'){
-            params['event']="sms_delivery";
-          }
-        } else if(params['compid']=='fcbe3928-6512-48a6-8cb5-c8c51e100539'){
-          params['server'] = 'js3in1.gamooga.com';
-        }else{
-          params['server'] = 'evbk.gamooga.com';
-        }
-        log.info(params);
-        // let custom_params = Object.keys(params).reduce(
+                // let custom_params = Object.keys(params).reduce(
         //   (object, key) => {
         //     if (key != 'comp_id' && key != 'vid') {
         //       object[key] = params[key];
@@ -96,7 +77,28 @@ router.get('/smscallback/', async (req, res) => {
         //   },
         //   {}
         // );
-         eventpush(params);
+        // let Server =
+        //   params.comp_id == 'fcbe3928-6512-48a6-8cb5-c8c51e100539'? 'js3in1.gamooga.com': 'evbk.gamooga.com';
+        // let url ='http://' +Server +'/ev/?c=' +params.comp_id +'&v=' +params.vid +'&e=_sms_delivered';
+        // Object.entries(custom_params).forEach(
+        //   ([key, value]) =>
+        //     (url = url + '&ky=' + key + '&vl=' + value + '&tp=s')
+        // );
+        // console.log(url);
+        // axios.get(url).then(function(response) {
+        //     console.log(response.statusText);
+        //   })
+        //   .catch(function(error) {
+        //     console.log(error);
+        //   });
+        let compid = params.comp_id ? params.comp_id : params.compid;
+        if(compid == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
+          params = {...params,server:'engageb.rsec.co.in',delv_date:data.delv_date,reqid:data.reqid}
+          params['event'] = params.status == 'Success' ? 'sms_delivery' : 'sms_bounced';
+        } else {
+          params['server'] =  comp_id == 'fcbe3928-6512-48a6-8cb5-c8c51e100539'? 'js3in1.gamooga.com': 'evbk.gamooga.com';
+        }
+        eventpush(params);
       } else {
         log.info('jobname was not paasing while sending sms');
       }

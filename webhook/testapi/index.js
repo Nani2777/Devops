@@ -223,7 +223,7 @@ router.get('/implwebhook/unsubscribe/', function (req, res) {
 router.post('/wpsmscallback', async (req, res) => {
   let wtappsms = req.body;
   log.info(typeof wtappsms);
-  console.log('body<><><><><><><><><><><><>',req.body);
+  //console.log('body<><><><><><><><><><><><>',req.body);
   try{
       if (typeof (wtappsms) == 'object') {
           log.info(wtappsms);
@@ -232,23 +232,27 @@ router.post('/wpsmscallback', async (req, res) => {
           //let event = '_wpsms_'+status
           //wtappsms.forEach(function (each) {
           if (event_type  == 'DELIVERY EVENTS'){//status == "Read" || status == "delivered" || status == "sent"){
-              console.log(extra)
+              //console.log(extra)
               var params = extra.split(';').reduce((arr, each) => {
                 arr[each.split(':')[0]] = each.split(':')[1]
                 return arr
               },{})
-              console.log(params)
-              if(params['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
+              //console.log(params)
+              let compid = params.comp_id ? params.comp_id : params.compid;
+              if(compid == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
                 params['server'] = 'engageb.rsec.co.in';
-              } else if(params['compid']=='fcbe3928-6512-48a6-8cb5-c8c51e100539'){
-                params['server'] = 'js3in1.gamooga.com';
-              }else{
-                params['server'] = 'evbk.gamooga.com';
+                console.log(params)
+              } else {
+                params['server'] = compid == 'fcbe3928-6512-48a6-8cb5-c8c51e100539'? 'js3in1.gamooga.com': 'evbk.gamooga.com';
               }
-              var details = {...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
-              console.log(details);
-              //log.info([details]);
-              eventpush(details);
+              console.log(params)
+              params = {...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
+              //console.log(details.event,details.status);
+
+              //details['event'] = details.status == 'read' ? '_sms_read' : '_sms_not';
+              console.log('<><><><><><><><><><><><><><><>__________-----------???????',params)
+              //log.info([details]); 
+              //eventpush(details);
           }
           //});
       }
