@@ -252,7 +252,7 @@ router.post('/wpsmscallback', async (req, res) => {
               //details['event'] = details.status == 'read' ? '_sms_read' : '_sms_not';
               console.log('<><><><><><><><><><><><><><><>__________-----------???????',params)
               //log.info([details]); 
-              eventpush(details);
+              eventpush(params);
           }
           //});
       }
