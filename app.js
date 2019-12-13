@@ -24,6 +24,12 @@ app.use(multer().none());
 
 const httpPort = process.env.PORT||15000;
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 console.log('Creating http server');
 log.info('Creating http server');
