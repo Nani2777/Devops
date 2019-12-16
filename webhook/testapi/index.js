@@ -222,6 +222,7 @@ router.get('/implwebhook/unsubscribe/', function (req, res) {
 
 router.post('/wpsmscallback', async (req, res) => {
     let wtappsms = req.body
+    console.log(wtappsms)
     let servermaper = {
         '6a7ba941-3460-4ff6-b36b-1e1d214415c5' : 'engageb.rsec.co.in',
         'fcbe3928-6512-48a6-8cb5-c8c51e100539' : 'js3in1.gamooga.com'
