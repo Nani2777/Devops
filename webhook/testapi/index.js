@@ -25,8 +25,8 @@ const log = require('../../logger');
 });*/
 
 
-router.get('/chatwebhook', function (req, res) {
-  log.info('chat post logs');
+router.get('/smswebhook', function (req, res) {
+  log.info('SMS get logs');
   log.info(req.body);
   //log.info(req.query);
   //log.info(req.params);
@@ -42,8 +42,8 @@ router.get('/chatwebhook', function (req, res) {
   res.end("OK");
 });
 
-router.post('/chatwebhook', function (req, res) {
-  log.info('chat post logs');
+router.post('/smswebhook', function (req, res) {
+  log.info('SMS post logs');
   log.info(req.body);
   //log.info(req.query);
   //log.info(req.params);
