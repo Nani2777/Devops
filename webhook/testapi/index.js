@@ -221,23 +221,58 @@ router.get('/implwebhook/unsubscribe/', function (req, res) {
 });
 
 router.post('/wpsmscallback', async (req, res) => {
-  let wtappsms = req.body;
-  log.info(typeof wtappsms);
-  //console.log('body<><><><><><><><><><><><>',req.body);
-  try{
+    let wtappsms = req.body
+    let servermaper = {
+        '6a7ba941-3460-4ff6-b36b-1e1d214415c5' : 'engageb.rsec.co.in',
+        'fcbe3928-6512-48a6-8cb5-c8c51e100539' : 'js3in1.gamooga.com'
+    }
+    try {
+        if (typeof (wtappsms) == 'object') { 
+            let extra = wtappsms.recipient.reference.messageTag1
+            let event_type = wtappsms.events.eventType
+
+            if( event_type == 'DELIVERY EVENTS') {
+                var params = extra.split(';').reduce((arr, each) => {
+                    arr[each.split(':')[0]] = each.split(':')[1]
+                    return arr
+                },{})
+                let compid = params.comp_id ? params.comp_id : params.compid
+                if (servermaper[compid]) {
+                    params.server = servermaper[compid]
+                } else {
+                    params.server = 'evbk.gamooga.com'
+                }
+
+                params = {
+                    ...params,
+                    event_type,
+                    status:wtappsms.notificationAttributes.status,
+                    reason:wtappsms.notificationAttributes.reason,
+                    channel:wtappsms.channel,
+                    to_add:wtappsms.recipient.to,
+                    event:'_wpsms_'+wtappsms.notificationAttributes.status
+                }
+              
+                //eventpush(params);
+                res.status(200).send('OK')
+            }
+        }
+    } catch(e) {
+        res.status(200).send('ERROR')
+    }
+})
+ 
+/*
+  try {
       if (typeof (wtappsms) == 'object') {
           log.info(wtappsms);
           let extra = wtappsms.recipient.reference.messageTag1;
           let event_type = wtappsms.events.eventType;
-          //let event = '_wpsms_'+status
-          //wtappsms.forEach(function (each) {
-          if (event_type  == 'DELIVERY EVENTS'){//status == "Read" || status == "delivered" || status == "sent"){
-              //console.log(extra)
+          if (event_type  == 'DELIVERY EVENTS'){
               var params = extra.split(';').reduce((arr, each) => {
                 arr[each.split(':')[0]] = each.split(':')[1]
                 return arr
               },{})
-              //console.log(params)
               let compid = params.comp_id ? params.comp_id : params.compid;
               if(compid == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
                 params['server'] = 'engageb.rsec.co.in';
@@ -247,14 +282,9 @@ router.post('/wpsmscallback', async (req, res) => {
               }
               console.log(params)
               params = {...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
-              //console.log(details.event,details.status);
-
-              //details['event'] = details.status == 'read' ? '_sms_read' : '_sms_not';
-              console.log('<><><><><><><><><><><><><><><>__________-----------???????',params)
-              //log.info([details]); 
+              
               eventpush(params);
           }
-          //});
       }
   }catch (e){
       console.log("Error in incoming data from value first", e);
@@ -264,5 +294,6 @@ router.post('/wpsmscallback', async (req, res) => {
   //res.writeHead(200);
   res.end("OK");
 });
+*/
 
 module.exports = router;
