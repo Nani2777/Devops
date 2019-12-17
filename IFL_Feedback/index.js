@@ -16,17 +16,17 @@ router.post('/ifli_non_hni/', async (req, res) => {
         axios.get(url).then(function (response) {
             console.log("Successfully data pushed to gamooga", feedback);
             if (response.status == 200) {
-                res.writeHead(200);
-                res.end("OK");
+                res.setHeader("Content-Type", "application/json");
+                res.status(200).json({status:'OK'})
             }
         }).catch(function (error) {
             console.log("Failed to store data in Gamooga", feedback);
-            res.writeHead(200);
-            res.end("ERROR");
+            res.setHeader("Content-Type", "application/json");
+            res.status(404).json({status:'ERROR'})
         });
     } catch (e) {
-        res.writeHead(500);
-        res.end("ERROR");
+        res.setHeader("Content-Type", "application/json");
+        res.status(500).json({status:'ERROR'})
     }
 });
 
