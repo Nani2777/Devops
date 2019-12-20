@@ -306,7 +306,7 @@ router.post('/wpsmscallback', async (req, res) => {
                     event:'_wpsms_'+wtappsms.notificationAttributes.status
                 }
               
-                //eventpush(params);
+                eventpush(params);
                 res.status(200).send('OK')
             }
         }
