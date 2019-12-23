@@ -6,6 +6,7 @@ const log = require('../../logger');
 
 router.post('/espcallback/', async (req, res) => {
     log.info(req.body);
+    log.info(req);
     //Log.L(Log.I, req.body);
     log.info(req.headers);
     //Log.L(Log.I, req.headers);
