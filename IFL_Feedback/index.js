@@ -36,10 +36,8 @@ router.post('/ifli_non_hni/', async (req, res) => {
 router.get('/ifli_non_hni/', async(req, res) => {
     try {
         let callback_feedback = req.query;
-        console.log(callback_feedback)
         let uid = callback_feedback.uid;
         let event = callback_feedback.event;
-        //let feedback = callback_feedback.feedback;
         let url = "http://js1in1.gamooga.com/evwid/?c=1bcef8b8-7c5d-400b-a02d-41cf56a5f2bb&u=" + uid + "&e=" + event;
         Object.entries(callback_feedback).forEach(
             ([key, value]) => {
