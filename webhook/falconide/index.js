@@ -8,9 +8,7 @@ router.post('/espcallback', function(req, res) {
   try {
     let request = req.body[0];
     let ExcludeEvents = request['EVENT'];
-    log.info('testing',req.body);
     log.info('testinggggggg',req.body[0]);
-    console.log('testing');
     if (ExcludeEvents !== 'clicked' && ExcludeEvents !== 'opened') {
       let WebhookData = request['X-APIHEADER'];
       let EventData = WebhookData.split(':');
@@ -54,6 +52,9 @@ router.post('/espcallback', function(req, res) {
         .catch(function(error) {
           //log.info(error);
         });
+    }else{
+      res.writeHead(200);
+      res.end("ok");
     }
   } catch (e) {
     //log.info('Something Happended in incoming request ');
