@@ -68,19 +68,21 @@ router.get('/ifli_non_hni/', async(req, res) => {
 router.get('/ifl_voiceblast/', async(req, res) => {
     try {
         console.log('printingggg',req.query)
-        /*let callback_feedback = req.query;
+       let callback_feedback = req.query;
         console.log('printingggg',callback_feedback)
-        let uid = callback_feedback.uid;
-        let event = callback_feedback.event;
+        let uid = callback_feedback.u;
+        let event = callback_feedback.e;
+        let comp_id=callback_feedback.c;
         //let feedback = callback_feedback.feedback;
-        let url = "http://js1in1.gamooga.com/evwid/?c=1bcef8b8-7c5d-400b-a02d-41cf56a5f2bb&u=" + uid + "&e=" + event;
-        Object.entries(callback_feedback).forEach(
+        let url = "http://js1in1.gamooga.com/evwid/?c=" + comp_id + "&u=" + uid + "&e=" + event;
+        Object.entries(callback_feedback).forEach( 
             ([key, value]) => {
-                if(key!='uid' && key!='event') {
-                url = url + "&ky=" + key + "&vl=" + value + "&tp=s"
+                if(key!='u' && key!='e' && key!='c') {
+                url = url + "&ky=" + key.toLowerCase() + "&vl=" + value + "&tp=s"
                 }
             }    
         );
+        console.log(url);
         axios.get(url).then(function (response) {
             console.log("Successfully data pushed to gamooga", callback_feedback);
             if (response.status == 200) {
@@ -90,9 +92,10 @@ router.get('/ifl_voiceblast/', async(req, res) => {
             console.log("Failed to store data in Gamooga", callback_feedback);
             //res.setHeader("Content-Type", "application/json");
             res.status(404).send('ERROR')
-        });*/
+        });
         res.status(200).send('OK')
     } catch (e) {
+        console.log (e)
         res.status(500).send('ERROR')        
     }
 
