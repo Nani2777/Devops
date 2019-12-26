@@ -303,6 +303,7 @@ router.post('/wpsmscallback', async (req, res) => {
                     reason:wtappsms.notificationAttributes.reason,
                     channel:wtappsms.channel,
                     to_add:wtappsms.recipient.to,
+                    mid : wtappsms.events.mid,
                     event:'_wpsms_'+wtappsms.notificationAttributes.status
                 }
               
