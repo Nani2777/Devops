@@ -13,6 +13,7 @@ const titanwebhook = require('./titan');
 const implwebhook = require('./testapi');
 const oraclewebhook = require('./oracledyn');
 const infobpiwebhook = require('./infobpi');
+const symbo = require('./symbo');
 
 
 router.use('/aws', awswebhook);
@@ -26,5 +27,6 @@ router.use('/falconide', falconidewebhook);
 router.use('/titan', titanwebhook);
 router.use('/testapi', implwebhook);
 router.use('/infobpi', infobpiwebhook);
+router.use('/symbo', symbo);
 
 module.exports = router;
