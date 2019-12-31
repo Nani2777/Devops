@@ -93,7 +93,12 @@ router.get('/smscallback/', async (req, res) => {
         //   });
         let compid = params.comp_id ? params.comp_id : params.compid;
         if(compid == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
-          params = {...params,server:'engageb.rsec.co.in',delv_date:data.delv_date,reqid:data.reqid}
+          //params = {...params,server:'engageb.rsec.co.in',delv_date:data.delv_date,reqid:data.reqid}
+          params = Object.assign(params, {
+            server: 'engageb.rsec.co.in',
+            delv_date: data.delv_date,
+            reqid: data.reqid
+          })
           params['event'] = params.status == 'Success' ? 'sms_delivery' : 'sms_bounced';
         } else {
           params['server'] =  comp_id == 'fcbe3928-6512-48a6-8cb5-c8c51e100539'? 'js3in1.gamooga.com': 'evbk.gamooga.com';
