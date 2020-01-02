@@ -7,7 +7,7 @@ const log = require('../../logger');
 router.post('/espcallback', function(req, res) {
   try {
     let request = req.body[0];
-    console.log(request);
+    //console.log(request);
     let ExcludeEvents = request['EVENT'];
     log.info('testinggggggg',req.body[0]);
     if (ExcludeEvents !== 'clicked' && ExcludeEvents !== 'opened') {
