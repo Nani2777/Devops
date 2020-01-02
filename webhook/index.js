@@ -14,6 +14,7 @@ const implwebhook = require('./testapi');
 const oraclewebhook = require('./oracledyn');
 const infobpiwebhook = require('./infobpi');
 const symbo = require('./symbo');
+const mailgun = require('./mailgun');
 
 
 router.use('/aws', awswebhook);
@@ -28,5 +29,6 @@ router.use('/titan', titanwebhook);
 router.use('/testapi', implwebhook);
 router.use('/infobpi', infobpiwebhook);
 router.use('/symbo', symbo);
+router.use('/mailgun', mailgun);
 
 module.exports = router;
