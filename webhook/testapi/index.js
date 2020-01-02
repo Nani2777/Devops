@@ -296,16 +296,15 @@ router.post('/wpsmscallback', async (req, res) => {
                     params.server = 'evbk.gamooga.com'
                 }
 
-                params = {
-                    ...params,
-                    event_type,
-                    status:wtappsms.notificationAttributes.status,
-                    reason:wtappsms.notificationAttributes.reason,
-                    channel:wtappsms.channel,
-                    to_add:wtappsms.recipient.to,
-                    mid : wtappsms.events.mid,
-                    event:'_wpsms_'+wtappsms.notificationAttributes.status
-                }
+                params = Object.assign({},params,{
+                  event_type,
+                  status:wtappsms.notificationAttributes.status,
+                  reason:wtappsms.notificationAttributes.reason,
+                  channel:wtappsms.channel,
+                  to_add:wtappsms.recipient.to,
+                  mid : wtappsms.events.mid,
+                  event:'_wpsms_'+wtappsms.notificationAttributes.status
+              })
               
                 eventpush(params);
                 res.status(200).send('OK')
