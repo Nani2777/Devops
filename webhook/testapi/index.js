@@ -27,8 +27,9 @@ const log = require('../../logger');
 
 router.get('/smswebhook', function (req, res) {
   console.log('SMS get logs');
-  console.log(req);
-  console.log(req.query);
+  log.info(JSON.stringify(req));
+  log.info(JSON.stringify(req.query));
+  log.info(req.query);
     try {
         var data = req.query;
         console.log('saim',data,typeof(data));
@@ -71,14 +72,16 @@ router.get('/smswebhook', function (req, res) {
         }
         console.log('Instead of passing object we are getting', typeof (data));
         //Log.L(Log.I,'Instead of passing object we are getting', typeof (data));        
-        res.writeHead(200);
-        res.end("ok");
+        //res.writeHead(200);
+        //res.end("ok");
+        res.status(200).send("OK")
     }
     catch (err) {
       console.log('gupshup - Error in Webhook from Gupshup \n%s', err);
         //Log.L(Log.I,'gupshup - Error in Webhook from Gupshup \n%s', err);
-        res.writeHead(200);
-        res.end("ERROR");
+        //res.writeHead(200);
+        //res.end("ERROR");
+        res.status(200).json({'error':err})
     } 
   //log.info(req.query);
   //log.info(req.params);
@@ -90,8 +93,8 @@ router.get('/smswebhook', function (req, res) {
   //log.info('error');
   //log.info('working'); 
   //log.info(req.body);
-  res.writeHead(200);
-  res.end("OK");
+  //res.writeHead(200);
+  //res.end("OK");
 });
 
 router.post('/smswebhook', function (req, res) {
