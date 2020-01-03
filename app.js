@@ -44,9 +44,7 @@ app.use('/gamooga-esp', apiRoutes);
 app.use("/logfiles", express.static(__dirname + "/logfiles"));
 
 app.get('/ping',function(req, res){
-  res.send("pong");
-  res.writeHead(200);
-  res.end("OK");
+  res.status(200).send('Pong!')
 })
 
 module.exports = app;
