@@ -27,8 +27,8 @@ const log = require('../../logger');
 
 router.get('/smswebhook', function (req, res) {
   console.log('SMS get logs');
-  log.info(JSON.stringify(req));
-  log.info(JSON.stringify(req.query));
+  //log.info(JSON.stringify(req));
+  //log.info(JSON.stringify(req.query));
   log.info(req.query);
     try {
         var data = req.query;
