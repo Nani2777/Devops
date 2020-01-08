@@ -44,4 +44,22 @@ router.post('/wpsmscallback/', async (req, res) => {
     res.end("OK");
   });
 
+router.get('/smscallback/', async (req, res) => {
+  let smsdata = req;
+  log.info('Karix SMS Get data');
+  log.info(typeof smsdata,smsdata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
+
+router.post('/smscallback/', async (req, res) => {
+  let smsdata = req;
+  log.info('Karix SMS Post data');
+  log.info(typeof smsdata,smsdata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
+
 module.exports = router;
