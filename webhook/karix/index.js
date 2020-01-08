@@ -62,4 +62,22 @@ router.post('/smscallback/', async (req, res) => {
   res.end("OK");
 });
 
+router.get('/emailcallback/', async (req, res) => {
+  let emaildata = req;
+  log.info('Karix Email Get data');
+  log.info(typeof emaildata,emaildata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
+
+router.post('/emailcallback/', async (req, res) => {
+  let emaildata = req;
+  log.info('Karix Email Post data');
+  log.info(typeof emaildata,emaildata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
+
 module.exports = router;
