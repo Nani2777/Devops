@@ -6,6 +6,7 @@ const log = require('../../logger');
 router.post('/espcallback/', function (req, res) {
     console.log('Mailgun post logs');
     console.log(req.query);
+    log.info(req.query);
     console.log('Body <><><><><><>',req.body);
     res.writeHead(200);
     res.end("OK");
