@@ -16,6 +16,7 @@ const infobpiwebhook = require('./infobpi');
 const symbo = require('./symbo');
 const mailgun = require('./mailgun');
 const karix = require('./karix');
+const googleads = require('./googleads');
 
 
 router.use('/aws', awswebhook);
@@ -32,5 +33,6 @@ router.use('/infobpi', infobpiwebhook);
 router.use('/symbo', symbo);
 router.use('/mailgun', mailgun);
 router.use('/karix', karix);
+router.use('/googleads', googleads);
 
 module.exports = router;
