@@ -12,6 +12,7 @@ router.get('/crmupdate/', async (req, res) => {
   //log.info(typeof smsdata,smsdata);
   log.info(req.body);
   console.log('body<><><><><><><><><><><><>',req.body);
+  
   console.log(typeof smsdata,smsdata);
   res.writeHead(200);
   res.end("OK");
