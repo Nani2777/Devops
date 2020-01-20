@@ -10,7 +10,6 @@ router.get('/crmupdate/', async (req, res) => {
   let smsdata = req;
   log.info('Google CRM Get data');
   //log.info(typeof smsdata,smsdata);
-  log.info(req);
   log.info(req.body);
   console.log('body<><><><><><><><><><><><>',req.body);
   console.log(typeof smsdata,smsdata);
@@ -21,7 +20,6 @@ router.get('/crmupdate/', async (req, res) => {
 router.post('/crmupdate/', async (req, res) => {
   let smsdata = req;
   log.info('Google CRM Post data');
-  log.info(req);
   log.info(req.body);
   console.log('body<><><><><><><><><><><><>',req.body);
   console.log(typeof smsdata,smsdata);
