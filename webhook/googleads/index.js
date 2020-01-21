@@ -37,7 +37,9 @@ try {
       campData['full_name']= user_data[i].string_value
       }
       if(user_data[i].column_name == 'User Phone'){
-      campData['mobile']= user_data[i].string_value
+        var mob=user_data[i].string_value;
+        var mobi=mob.slice(mob.length-10,mob.length);
+      campData['mobile']= mobi;
       }
     }
     let comp_id = 'dcaf55cc-b36d-4d0e-9003-f93187c04886'
