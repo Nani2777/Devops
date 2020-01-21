@@ -44,7 +44,7 @@ try {
       }
     }
     let comp_id = 'dcaf55cc-b36d-4d0e-9003-f93187c04886'
-    let event = 'test_lead'
+    let event = 'google_ad_leads'
     let url = `http://evbk.gamooga.com/evwid/?c=${comp_id}&u=${campData['mobile']}&e=${event}`
     Object.entries(campData).forEach(
       ([key,value]) => {
