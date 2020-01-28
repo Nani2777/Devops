@@ -29,7 +29,9 @@ router.post('/wpsmscallback/', async (req, res) => {
               }else{
                 params['server'] = 'evbk.gamooga.com';
               }
-              var details = {...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
+              var details = Object.assign({},params,{event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status})
+                
+                //{...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
               console.log(details);
               log.info(details);
               eventpush(details);
@@ -43,5 +45,41 @@ router.post('/wpsmscallback/', async (req, res) => {
     res.writeHead(200);
     res.end("OK");
   });
+
+router.get('/smscallback/', async (req, res) => {
+  let smsdata = req;
+  log.info('Karix SMS Get data');
+  log.info(typeof smsdata,smsdata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
+
+router.post('/smscallback/', async (req, res) => {
+  let smsdata = req;
+  log.info('Karix SMS Post data');
+  log.info(typeof smsdata,smsdata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
+
+router.get('/emailcallback/', async (req, res) => {
+  let emaildata = req;
+  log.info('Karix Email Get data');
+  log.info(typeof emaildata,emaildata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
+
+router.post('/emailcallback/', async (req, res) => {
+  let emaildata = req;
+  log.info('Karix Email Post data');
+  log.info(typeof emaildata,emaildata);
+  console.log('body<><><><><><><><><><><><>',req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
 
 module.exports = router;

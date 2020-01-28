@@ -45,8 +45,11 @@ app.use('/gamooga-esp', apiRoutes);
 
 app.get('/ping',function(req, res){
   res.status(200).send('Pong!')
+<<<<<<< HEAD
   log.info('Lub dub lub dub lub dub')
   console.log('Yes i am in')
+=======
+>>>>>>> 0a864c0b5d7f5c672b9984e70505b4a143075856
 })
 
 module.exports = app;
