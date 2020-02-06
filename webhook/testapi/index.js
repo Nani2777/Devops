@@ -8,6 +8,7 @@ const log = require('../../logger');
 
 //app.use(morgan('combined', { stream: winston.stream }));
 /*router.post('/implwebhook', function (req, res) {
+  console.log('working');
   log.info('chat post logs');
   log.info(req.body);
   //log.info(req.query);
