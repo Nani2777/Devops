@@ -12,7 +12,7 @@ const axios = require('axios');
 //const Log = require('stark/utils/log');
 const log = require('../../logger');
 
-router.get('/wpsmscallback/', function (req, res) {
+router.post('/wpsmscallback/', function (req, res) {
     console.log('came in add link tracking --------------------');
     let self = this;
     let eventToTrigger = 'wp_sms_click';
@@ -25,9 +25,11 @@ router.get('/wpsmscallback/', function (req, res) {
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
+    let wrappedurl = 'http://'+'localhost:8000'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
     //console.log('http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
        //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
-    console.log('http://'+'localhost:8000'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
+    console.log(wrappedurl);
+    res.status(200).send(wrappedurl);
     //return 'http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
     //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
 });
