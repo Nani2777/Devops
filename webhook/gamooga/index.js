@@ -15,6 +15,8 @@ const log = require('../../logger');
 router.post('/wpsmscallback/', function (req, res) {
     let body = req.body;
     console.log(body);
+    log.info('###############click wrapper');
+    log.info(body);
     let self = this;
     let eventToTrigger = '_wpsms_click';
     let compid = body.compid;
