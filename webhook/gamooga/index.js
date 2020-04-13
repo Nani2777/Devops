@@ -12,34 +12,24 @@ const axios = require('axios');
 //const Log = require('stark/utils/log');
 const log = require('../../logger');
 
-const TEMPLATE_TIMEOUT_SECS = 60;
-
-let VPROP_RE = /_VIS_(\.([^ \|\}%]*))|_VIS_(\[['"]([^'"]*))/g;
-
 router.get('/wpsmscallback/', function (req, res) {
-    
-        console.log('came in add link tracking --------------------');
-        let self = this;
-        let eventToTrigger = 'wp_sms_click';
-        let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
-        //let url_regex = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9:%_+.~#/=!$\'()*,;@]*)*((\?|&)[-a-zA-Z0-9:%_+.~#?&/=!$\'()*,;@]*)?/gi;
-        //body = body.replace(url_regex, function(url, protocol, params, range, __, _, pre, post) {
-        let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
-        let urlToWrap;
-            let urlObj = Url.parse(url, true, true);
-            urlToWrap = urlObj.format(urlObj);
-            console.log();
-            //console.log('http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
-            //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
-            console.log('http://'+'localhost:8000'+'/ev/?e='+eventToTrigger
-            +'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
-            console.log();
-            //return 'http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
-            //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
-        //});
-        console.log('body ---------------------', body);
-        //return body;
-
-    });
+    console.log('came in add link tracking --------------------');
+    let self = this;
+    let eventToTrigger = 'wp_sms_click';
+    let compid = 'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
+    let vid = 'cRmCaVgRArxq70m7';
+    let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
+    //let url_regex = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9:%_+.~#/=!$\'()*,;@]*)*((\?|&)[-a-zA-Z0-9:%_+.~#?&/=!$\'()*,;@]*)?/gi;
+    //body = body.replace(url_regex, function(url, protocol, params, range, __, _, pre, post) {
+    let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
+    let urlToWrap;
+    let urlObj = Url.parse(url, true, true);
+    urlToWrap = urlObj.format(urlObj);
+    //console.log('http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
+       //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
+    console.log('http://'+'localhost:8000'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
+    //return 'http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
+    //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
+});
 
 module.exports = router;
