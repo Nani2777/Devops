@@ -24,9 +24,9 @@ router.post('/wpsmscallback/', function (req, res) {
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
-    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
+    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
     console.log(wrappedurl);
-    res.status(200).json({ 'url' : wrappedurl});//send(wrappedurl);
+    res.status(200).json({ 'url' : encodeURIComponent(wrappedurl)});//send(wrappedurl);
 });
 
 module.exports = router;
