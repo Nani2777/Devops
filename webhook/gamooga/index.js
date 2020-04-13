@@ -18,16 +18,16 @@ router.post('/wpsmscallback/', function (req, res) {
     console.log(body);
     let self = this;
     let eventToTrigger = 'wp_sms_click';
-    let compid = body.compid;//'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
+    let compid = '107a3b41-1aa3-45c6-a324-f0399a2aa2af'; //body.compid;//'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
     let vid = body.vid;//'cRmCaVgRArxq70m7';
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
     let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
-    let wrappedurl = 'http://'+'localhost:8000'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
+    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
     console.log(wrappedurl);
-    res.status(200).json({message :wrappedurl});//send(wrappedurl);
+    res.status(200).json({ 'url' : wrappedurl});//send(wrappedurl);
 });
 
 module.exports = router;
