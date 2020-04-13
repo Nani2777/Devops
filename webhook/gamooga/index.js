@@ -30,9 +30,3 @@ router.post('/wpsmscallback/', function (req, res) {
 });
 
 module.exports = router;
-
-
-http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url={{_DATA_.urlwp[0].body.url}}
-
-
-http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url={{klix_test_aash.link}}
