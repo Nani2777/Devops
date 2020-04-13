@@ -18,8 +18,8 @@ router.post('/wpsmscallback/', function (req, res) {
     console.log(body);
     let self = this;
     let eventToTrigger = 'wp_sms_click';
-    let compid = '107a3b41-1aa3-45c6-a324-f0399a2aa2af'; //body.compid;//'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
-    let vid = body.vid;//'cRmCaVgRArxq70m7';
+    let compid = body.compid;
+    let vid = body.vid;
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
     let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
     let urlToWrap;
