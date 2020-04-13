@@ -21,19 +21,13 @@ router.post('/wpsmscallback/', function (req, res) {
     let compid = body.compid;//'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
     let vid = body.vid;//'cRmCaVgRArxq70m7';
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
-    //let url_regex = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9:%_+.~#/=!$\'()*,;@]*)*((\?|&)[-a-zA-Z0-9:%_+.~#?&/=!$\'()*,;@]*)?/gi;
-    //body = body.replace(url_regex, function(url, protocol, params, range, __, _, pre, post) {
     let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
     let wrappedurl = 'http://'+'localhost:8000'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
-    //console.log('http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
-       //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
     console.log(wrappedurl);
-    res.status(200).json({'url':wrappedurl});//send(wrappedurl);
-    //return 'http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
-    //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
+    res.status(200).json({message :wrappedurl});//send(wrappedurl);
 });
 
 module.exports = router;
