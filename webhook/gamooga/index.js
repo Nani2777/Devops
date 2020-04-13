@@ -20,7 +20,7 @@ router.post('/wpsmscallback/', function (req, res) {
     let compid = body.compid;
     let vid = body.vid;
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
-    let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
+    let url = body.url;//'https://www.lidolearning.com/?utmcampaign=testcamp';    
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
