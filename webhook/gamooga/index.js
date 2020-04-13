@@ -29,7 +29,7 @@ router.post('/wpsmscallback/', function (req, res) {
     //console.log('http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
        //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
     console.log(wrappedurl);
-    res.status(200).send(wrappedurl);
+    res.status(200).json({'url':wrappedurl});//send(wrappedurl);
     //return 'http://'+'localhost:8000'+'/ev/?e='+encodeURIComponent("^"+trigEvent+" - "+trigId)
     //+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap);
 });
