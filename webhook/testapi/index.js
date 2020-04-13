@@ -3,6 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 const eventpush = require('../eventpush');
 const log = require('../../logger');
+const Url = require('url');
 //var morgan = require('morgan');
 //var winston = require('../../config/winston');
 
@@ -25,6 +26,36 @@ const log = require('../../logger');
   res.end("OK");
 });*/
 
+router.get('/nanismswebhook', function (req, res) {
+  log.info('SMS post logs');
+  log.info(req.body);
+  console.log();
+  console.log('came in add link tracking --------------------');
+  let eventToTrigger = 'wp_sms_click';
+  let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
+  //let url_regex = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9:%_+.~#/=!$\'()*,;@]*)*((\?|&)[-a-zA-Z0-9:%_+.~#?&/=!$\'()*,;@]*)?/gi;
+  //body = body.replace(url_regex, function(url, protocol, params, range, __, _, pre, post) {
+  let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
+  let urlToWrap;
+  let urlObj = Url.parse(url, true, true);
+  urlToWrap = urlObj.format(urlObj);
+  console.log();
+  console.log('http://'+'localhost:8000'+'/ev/?e='+eventToTrigger+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
+  console.log('body ---------------------', body);
+  //return body;
+  //log.info(req.query);
+  //log.info(req.params);
+  //log.info(req.headers);
+  //Logger.info(req.body);
+  //Logger.info(req.query);
+  //Logger.info(req.params);
+  //Logger.info(req.headers);
+  //log.info('error');
+  //log.info('working'); 
+  //log.info(req.body);
+  res.writeHead(200);
+  res.end("OK");
+});
 
 router.get('/smswebhook', function (req, res) {
   console.log('SMS get logs');
