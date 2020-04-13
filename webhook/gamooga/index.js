@@ -18,8 +18,8 @@ router.post('/wpsmscallback/', function (req, res) {
     console.log(body);
     let self = this;
     let eventToTrigger = 'wp_sms_click';
-    let compid = 'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
-    let vid = 'cRmCaVgRArxq70m7';
+    let compid = body.compid;//'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
+    let vid = body.vid;//'cRmCaVgRArxq70m7';
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
     //let url_regex = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9:%_+.~#/=!$\'()*,;@]*)*((\?|&)[-a-zA-Z0-9:%_+.~#?&/=!$\'()*,;@]*)?/gi;
     //body = body.replace(url_regex, function(url, protocol, params, range, __, _, pre, post) {
