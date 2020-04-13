@@ -14,6 +14,8 @@ const log = require('../../logger');
 
 router.post('/wpsmscallback/', function (req, res) {
     console.log('came in add link tracking --------------------');
+    let body = req.body;
+    console.log(body);
     let self = this;
     let eventToTrigger = 'wp_sms_click';
     let compid = 'c48c0bf8-da8e-439a-be4f-9be0f6c72ba0';
