@@ -1,11 +1,11 @@
-import DateTimeUtil from '../util/datetime'
-import Url from 'url'
-import nunjucks from 'nunjucks'
-import NunjucksEnv from './nunjucks_custom'
-import VisProp from '../vprop'
-import NodeUtil from 'util'
-import Log from '../util/log'
-import LRU from 'lru-cache'
+//import DateTimeUtil from '../util/datetime'
+const Url = require('url');
+//import nunjucks from 'nunjucks'
+//import NunjucksEnv from './nunjucks_custom'
+//import VisProp from '../vprop'
+//import NodeUtil from 'util'
+//import Log from '../util/log'
+//import LRU from 'lru-cache'
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
@@ -15,8 +15,6 @@ const log = require('../../logger');
 const TEMPLATE_TIMEOUT_SECS = 60;
 
 let VPROP_RE = /_VIS_(\.([^ \|\}%]*))|_VIS_(\[['"]([^'"]*))/g;
-
-let processedTemplates = new LRU(5000)
 
 router.get('/wpsmscallback/', function (req, res) {
     
@@ -41,10 +39,6 @@ router.get('/wpsmscallback/', function (req, res) {
         //});
         console.log('body ---------------------', body);
         //return body;
-
-
-
-
 
     });
 
