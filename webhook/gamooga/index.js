@@ -13,7 +13,6 @@ const axios = require('axios');
 const log = require('../../logger');
 
 router.post('/wpsmscallback/', function (req, res) {
-    console.log('came in add link tracking --------------------');
     let body = req.body;
     console.log(body);
     let self = this;
