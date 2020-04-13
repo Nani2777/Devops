@@ -16,7 +16,7 @@ router.post('/wpsmscallback/', function (req, res) {
     let body = req.body;
     console.log(body);
     let self = this;
-    let eventToTrigger = 'wp_sms_click';
+    let eventToTrigger = '_wpsms_click';
     let compid = body.compid;
     let vid = body.vid;
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
@@ -30,3 +30,9 @@ router.post('/wpsmscallback/', function (req, res) {
 });
 
 module.exports = router;
+
+
+http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url={{_DATA_.urlwp[0].body.url}}
+
+
+http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url={{klix_test_aash.link}}
