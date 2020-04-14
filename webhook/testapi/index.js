@@ -57,7 +57,7 @@ router.post('/nanismswebhook', function (req, res) {
       },
     })*/
     let shrturl = 'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref=9492794266&long_url='+encodeURIComponent(wrappedurl);
-    axios.post(shrturl,{
+    axios.get(shrturl,{
       headers:{
         //'Content-Type':'application/x-www-form-urlencoded',
         Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
