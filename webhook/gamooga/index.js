@@ -11,21 +11,21 @@ router.post('/wpsmscallback/', function (req, res) {
     log.info('###############click wrapper');
     log.info(body);
     let self = this;
-    let eventToTrigger = '_wpsms_click';
+    let eventToTrigger = 'wpsms_click';
     let compid = body.compid;
     let vid = body.vid;
     let cp_id = body.cp_id;
     let cp_type = body.cp_type;
-    let tp = body.tp;
     let tpid = body.tpid;
     let runid = body.runid;
+    let trigId = cp_type+cp_id+'-hrid-'+tpid;
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
     let url = body.url;//'https://www.lidolearning.com/?utmcampaign=testcamp';    
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
-    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&ky=cp_id&vl='+cp_id+'&tp=s&ky=cp_type&vl='+cp_type+'&tp=s&ky=tp&vl='+tp+'&tp=s&ky=tpid&vl='+tpid+'&tp=s&ky=runid&vl='+runid+'&tp=s&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
-    console.log(wrappedurl);
+    let eventDataB64 = Buffer.from(JSON.stringify(["^"+eventToTrigger+" - "+trigId, { "link" : urlToWrap }])).toString("base64").replace(/\+/g,'-').replace(/\//g,'_');
+    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/mev/?data='+eventDataB64+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&ky=link&vl='+encodeURIComponent(urlToWrap)+'&tp=s'+'&redir='+encodeURIComponent(urlToWrap);
     res.status(200).json({ 'url' : encodeURIComponent(wrappedurl)});//send(wrappedurl);
 });
 
