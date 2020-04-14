@@ -48,7 +48,7 @@ router.post('/nanismswebhook', function (req, res) {
     urlToWrap = urlObj.format(urlObj);
     let eventDataB64 = Buffer.from(JSON.stringify([eventToTrigger+" - "+trigId, { "link" : urlToWrap }])).toString("base64").replace(/\+/g,'-').replace(/\//g,'_');
 
-    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/mev/?data='+eventDataB64+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&ky=link&vl='+encodeURIComponent(urlToWrap)+'&tp=s'+'&redir='+urlToWrap;
+    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/mev/?data='+eventDataB64+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&ky=link&vl='+encodeURIComponent(urlToWrap)+'&tp=s'+'&redir='+encodeURIComponent(urlToWrap);
 
 
 
@@ -64,7 +64,7 @@ router.post('/nanismswebhook', function (req, res) {
         Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
       },
     })*/
-    let shrturl = 'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref=9492794266&long_url='+encodeURIComponent(wrappedurl);
+    let shrturl = 'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref=9492794266&long_url='+wrappedurl;
     axios.get(shrturl,{
       headers:{
         //'Content-Type':'application/x-www-form-urlencoded',
