@@ -37,10 +37,9 @@ router.post('/nanismswebhook', function (req, res) {
     let vid = body.vid;
     let cp_id = body.cp_id;
     let cp_type = body.cp_type;
-    let tp = body.tp;
     let tpid = body.tpid;
     let runid = body.runid;
-    let trigId = 'c'+cp_id+'-hrid-'+tpid;
+    let trigId = cp_type+cp_id+'-hrid-'+tpid;
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
     let url = body.url;//'https://www.lidolearning.com/?utmcampaign=testcamp';    
     let urlToWrap;

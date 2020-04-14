@@ -5,7 +5,7 @@ const axios = require('axios');
 //const Log = require('stark/utils/log');
 const log = require('../../logger');
 
-router.post('/wpsmscallback/', function (req, res) {
+router.post('/clickwrapper/', function (req, res) {
     let body = req.body;
     console.log(body);
     log.info('###############click wrapper');
