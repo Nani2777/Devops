@@ -32,7 +32,7 @@ router.post('/nanismswebhook', function (req, res) {
     log.info('###############click wrapper');
     log.info(body);
     let self = this;
-    let eventToTrigger = '_wpsms_click';
+    let eventToTrigger = 'wpsms_click';
     let compid = body.compid;
     let vid = body.vid;
     let cp_id = body.cp_id;
@@ -46,7 +46,7 @@ router.post('/nanismswebhook', function (req, res) {
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
-    let eventDataB64 = Buffer.from(JSON.stringify([eventToTrigger+" - "+trigId, { "link" : urlToWrap }])).toString("base64").replace(/\+/g,'-').replace(/\//g,'_');
+    let eventDataB64 = Buffer.from(JSON.stringify(["^"+eventToTrigger+" - "+trigId, { "link" : urlToWrap }])).toString("base64").replace(/\+/g,'-').replace(/\//g,'_');
 
     let wrappedurl = 'http://'+'evbk.gamooga.com'+'/mev/?data='+eventDataB64+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&ky=link&vl='+encodeURIComponent(urlToWrap)+'&tp=s'+'&redir='+encodeURIComponent(urlToWrap);
 
