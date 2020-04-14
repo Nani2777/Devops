@@ -40,13 +40,20 @@ router.post('/nanismswebhook', function (req, res) {
     let tp = body.tp;
     let tpid = body.tpid;
     let runid = body.runid;
+    let trigId = 'c'+cp_id+'-hrid-'+tpid;
     let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
     let url = body.url;//'https://www.lidolearning.com/?utmcampaign=testcamp';    
     let urlToWrap;
     let urlObj = Url.parse(url, true, true);
     urlToWrap = urlObj.format(urlObj);
+    let eventDataB64 = Buffer.from(JSON.stringify([eventToTrigger+" - "+trigId, { "link" : urlToWrap }])).toString("base64").replace(/\+/g,'-').replace(/\//g,'_');
+
+    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/mev/?data='+eventDataB64+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&ky=link&vl='+encodeURIComponent(urlToWrap)+'&tp=s'+'&redir='+encodeURIComponent(urlToWrap);
+
+
+
     //let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&ky=cp_id&vl='+cp_id+'&tp=s&ky=cp_type&vl='+cp_type+'&tp=s&ky=tp&vl='+tp+'&tp=s&ky=tpid&vl='+tpid+'&tp=s&ky=runid&vl='+runid+'&tp=s&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
-    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&ky=cp_type&vl='+cp_type+'&tp=s&ky=tp&vl='+tp+'&tp=s&ky=tpid&vl='+tpid+'&tp=s&ky=runid&vl='+runid+'&tp=s&ky=cp_id&vl='+cp_id+'&tp=s&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
+    //let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&ky=cp_type&vl='+cp_type+'&tp=s&ky=tp&vl='+tp+'&tp=s&ky=tpid&vl='+tpid+'&tp=s&ky=runid&vl='+runid+'&tp=s&ky=cp_id&vl='+cp_id+'&tp=s&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
     console.log(wrappedurl);
     //res.status(200).json({ 'url' : encodeURIComponent(wrappedurl)});//send(wrappedurl);
     /*axios({
