@@ -27,34 +27,48 @@ const Url = require('url');
 });*/
 
 router.get('/nanismswebhook', function (req, res) {
-  log.info('SMS post logs');
-  log.info(req.body);
-  console.log();
-  console.log('came in add link tracking --------------------');
-  let eventToTrigger = 'wp_sms_click';
-  let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
-  //let url_regex = /(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/[-a-zA-Z0-9:%_+.~#/=!$\'()*,;@]*)*((\?|&)[-a-zA-Z0-9:%_+.~#?&/=!$\'()*,;@]*)?/gi;
-  //body = body.replace(url_regex, function(url, protocol, params, range, __, _, pre, post) {
-  let url = 'https://www.lidolearning.com/?utmcampaign=testcamp';    
-  let urlToWrap;
-  let urlObj = Url.parse(url, true, true);
-  urlToWrap = urlObj.format(urlObj);
-  console.log();
-  console.log('http://'+'localhost:8000'+'/ev/?e='+eventToTrigger+'&c='+compId+'&v='+visId+'&s=abc&t=xyz&z='+td+'&redir='+encodeURIComponent(urlToWrap));
-  console.log('body ---------------------', body);
-  //return body;
-  //log.info(req.query);
-  //log.info(req.params);
-  //log.info(req.headers);
-  //Logger.info(req.body);
-  //Logger.info(req.query);
-  //Logger.info(req.params);
-  //Logger.info(req.headers);
-  //log.info('error');
-  //log.info('working'); 
-  //log.info(req.body);
-  res.writeHead(200);
-  res.end("OK");
+  let body = req.body;
+    console.log(body);
+    log.info('###############click wrapper');
+    log.info(body);
+    let self = this;
+    let eventToTrigger = '_wpsms_click';
+    let compid = body.compid;
+    let vid = body.vid;
+    let cp_id = body.cp_id;
+    let cp_type = body.cp_type;
+    let tp = body.tp;
+    let tpid = body.tpid;
+    let runid = body.runid;
+    let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
+    let url = body.url;//'https://www.lidolearning.com/?utmcampaign=testcamp';    
+    let urlToWrap;
+    let urlObj = Url.parse(url, true, true);
+    urlToWrap = urlObj.format(urlObj);
+    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&ky=cp_id&vl='+cp_id+'&tp=s&ky=cp_type&vl='+cp_type+'&tp=s&ky=tp&vl='+tp+'&tp=s&ky=tpid&vl='+tpid+'&tp=s&ky=runid&vl='+runid+'&tp=s&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
+    console.log(wrappedurl);
+    //res.status(200).json({ 'url' : encodeURIComponent(wrappedurl)});//send(wrappedurl);
+    /*axios({
+      method:'POST',
+      url:'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url='+encodeURIComponent(wrappedurl),
+      headers:{
+        'Content-Type':'application/x-www-form-urlencoded',
+        Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
+      },
+    })*/
+    let shrturl = 'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url='+encodeURIComponent(wrappedurl);
+    axios.post(shrturl,{
+      headers:{
+        'Content-Type':'application/x-www-form-urlencoded',
+        Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
+      }
+    }).then(function(response){
+      console.log('************ Response');
+      log.info(response);
+      console.log(response);
+    }).catch(function(error){
+      console.log(error);
+    })
 });
 
 router.get('/smswebhook', function (req, res) {
