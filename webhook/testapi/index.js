@@ -26,7 +26,7 @@ const Url = require('url');
   res.end("OK");
 });*/
 
-router.get('/nanismswebhook', function (req, res) {
+router.post('/nanismswebhook', function (req, res) {
   let body = req.body;
     console.log(body);
     log.info('###############click wrapper');
