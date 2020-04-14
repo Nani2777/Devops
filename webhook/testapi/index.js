@@ -56,16 +56,17 @@ router.post('/nanismswebhook', function (req, res) {
         Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
       },
     })*/
-    let shrturl = 'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url='+encodeURIComponent(wrappedurl);
+    let shrturl = 'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref=9492794266&long_url='+encodeURIComponent(wrappedurl);
     axios.post(shrturl,{
       headers:{
         'Content-Type':'application/x-www-form-urlencoded',
         Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
       }
     }).then(function(response){
-      console.log('************ Response');
+      console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRResponse');
       log.info(response);
       console.log(response);
+      res.status(200);
     }).catch(function(error){
       console.log(error);
     })
