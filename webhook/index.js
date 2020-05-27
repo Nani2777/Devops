@@ -18,6 +18,7 @@ const mailgun = require('./mailgun');
 const karix = require('./karix');
 const googleads = require('./googleads');
 const gamooga = require('./gamooga');
+const gamooga = require('./candere');
 
 
 router.use('/aws', awswebhook);
@@ -36,5 +37,6 @@ router.use('/mailgun', mailgun);
 router.use('/karix', karix);
 router.use('/googleads', googleads);
 router.use('/gamooga', gamooga);
+router.use('/candere', candere);
 
 module.exports = router;
