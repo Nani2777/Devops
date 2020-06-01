@@ -8,7 +8,7 @@ const log = require('../../logger');
 
 router.post('/evcallback/', async (req, res) => {
     let data = req.body;
-    log.info(typeof data);
+    log.info('post<><><><><><><><><><><><>',typeof data);
     console.log('post<><><><><><><><><><><><>',req.body);
     res.writeHead(200);
     res.end("OK");
@@ -16,7 +16,7 @@ router.post('/evcallback/', async (req, res) => {
 
 router.get('/evcallback/', async (req, res) => {
     let data = req.body;
-    log.info(typeof data);
+    log.info('get<><><><><><><><><><><><>',typeof data);
     console.log('get<><><><><><><><><><><><>',req.body);
     res.writeHead(200);
     res.end("OK");
