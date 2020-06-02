@@ -15,9 +15,9 @@ router.post('/evcallback/', async (req, res) => {
 });
 
 router.get('/evcallback/', async (req, res) => {
-    let data = req.body;
+    let data = req.query;
     log.info(typeof data,' candere get<><><><><><><><><><><><> ', data);
-    console.log('get<><><><><><><><><><><><>',req.body);
+    console.log('get<><><><><><><><><><><><>',req.query);
     res.writeHead(200);
     res.end("OK");
 });
