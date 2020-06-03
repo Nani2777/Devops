@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 const eventpush = require('../eventpush');
 //const Log = require('stark/utils/log');
-const log = require('../../logger');
+const log = require('../../canderelogs');
 
 
 router.post('/evcallback/', async (req, res) => {
