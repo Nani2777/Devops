@@ -1,6 +1,6 @@
 const opts = {
     errorEventName:'error',
-    logDirectory:`${__dirname}/logfiles`, // NOTE: folder must exist and be writable...
+    logDirectory:`${__dirname}/candere-logfiles`, // NOTE: folder must exist and be writable...
     fileNamePattern:'roll-<DATE>.log',
     dateFormat:'YYYY.MM.DD'
 };
