@@ -31,7 +31,7 @@ router.post('/evcallback/', async (req, res) => {
             let index = -1;
             values.forEach(async (each) => {
                 index++
-                await sleep(index*10000)
+                await sleep(index*6000)
                 // console.log(each,'<><><><><><>',new Date())
                 each['uid'] = each['Email_id']
                 each = renameKey(each, 'eventName', 'event');
