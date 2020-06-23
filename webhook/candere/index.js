@@ -35,7 +35,7 @@ router.post('/evcallback/', async (req, res) => {
                 // console.log(each,'<><><><><><>',new Date())
                 each['uid'] = each['email_id']
                 each = renameKey(each, 'eventName', 'event');
-                each['event'] = 'digital_certificate'
+                //each['event'] = 'digital_certificate'
                 each['compid'] = 'f7cfe791-dcc0-4c2c-a233-a5ca65229915';
                 if(each['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
                     each['server'] = 'engageb.rsec.co.in';
