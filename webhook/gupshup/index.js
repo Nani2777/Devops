@@ -53,7 +53,7 @@ router.get('/smscallback/', function (req, res) {
         res.end("ok");
     }
     catch (err) {
-        log.info('gupshup - Error in Webhook from Gupshup \n%s', err);
+        log.info('gupshup - Error in Webhook from Gupshup \n%s');//, err);
         //Log.L(Log.I,'gupshup - Error in Webhook from Gupshup \n%s', err);
         res.writeHead(200);
         res.end("ERROR");
