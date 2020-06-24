@@ -5,10 +5,11 @@ const axios = require('axios');
 const log = require('../../logger');
 
 router.get('/smscallback/', function (req, res) {
-    log.info(req.query);
+    log.info(req.query,'<><><><><><><> Gupshup');
     try {
         var data = req.query;
         log.info('saim',data,typeof(data));
+        log.info('harishlog',req);
         if (typeof (data) == 'object') {
             var cmp_data = data['extra'];
             var campaign_data = JSON.parse(cmp_data);

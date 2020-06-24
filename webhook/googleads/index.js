@@ -19,7 +19,6 @@ router.get('/crmupdate/', async (req, res) => {
 });
 
 router.post('/crmupdate/', async (req, res) => {
-//console.log('body<><><><><><><><><><><><>',req.body);
 try {
   let crmupData = req.body;
   console.log('typeOF<><><><><><><><><><><><>',typeof(crmupData))
@@ -62,7 +61,7 @@ try {
 } catch(err){
   log.info('crmupData \n%s', err);
   console.log(err)
-  res.status(404).json({'Message':"Something went wrong"})
+  res.status(400).json({'Message':"Bad Request"})
 }
 });
 module.exports = router;

@@ -17,6 +17,8 @@ const symbo = require('./symbo');
 const mailgun = require('./mailgun');
 const karix = require('./karix');
 const googleads = require('./googleads');
+const gamooga = require('./gamooga');
+const candere = require('./candere');
 
 
 router.use('/aws', awswebhook);
@@ -34,5 +36,7 @@ router.use('/symbo', symbo);
 router.use('/mailgun', mailgun);
 router.use('/karix', karix);
 router.use('/googleads', googleads);
+router.use('/gamooga', gamooga);
+router.use('/candere', candere);
 
 module.exports = router;

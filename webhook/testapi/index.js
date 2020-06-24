@@ -3,11 +3,13 @@ const router = express.Router();
 const axios = require('axios');
 const eventpush = require('../eventpush');
 const log = require('../../logger');
+const Url = require('url');
 //var morgan = require('morgan');
 //var winston = require('../../config/winston');
 
 //app.use(morgan('combined', { stream: winston.stream }));
 /*router.post('/implwebhook', function (req, res) {
+  console.log('working');
   log.info('chat post logs');
   log.info(req.body);
   //log.info(req.query);
@@ -24,6 +26,58 @@ const log = require('../../logger');
   res.end("OK");
 });*/
 
+router.post('/nanismswebhook', function (req, res) {
+  let body = req.body;
+    console.log(body);
+    log.info('###############click wrapper');
+    log.info(body);
+    let self = this;
+    let eventToTrigger = 'wpsms_click';
+    let compid = body.compid;
+    let vid = body.vid;
+    let cp_id = body.cp_id;
+    let cp_type = body.cp_type;
+    let tpid = body.tpid;
+    let runid = body.runid;
+    let trigId = cp_type+cp_id+'-hrid-'+tpid;
+    let td = new Date().getTime() + '' + parseInt(Math.random()*10000);
+    let url = body.url;//'https://www.lidolearning.com/?utmcampaign=testcamp';    
+    let urlToWrap;
+    let urlObj = Url.parse(url, true, true);
+    urlToWrap = urlObj.format(urlObj);
+    let eventDataB64 = Buffer.from(JSON.stringify(["^"+eventToTrigger+" - "+trigId, { "link" : urlToWrap }])).toString("base64").replace(/\+/g,'-').replace(/\//g,'_');
+
+    let wrappedurl = 'http://'+'evbk.gamooga.com'+'/mev/?data='+eventDataB64+'&c='+compid+'&v='+vid+'&s=abc&t=xyz&z='+td+'&ky=link&vl='+encodeURIComponent(urlToWrap)+'&tp=s'+'&redir='+encodeURIComponent(urlToWrap);
+
+
+
+    //let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&ky=cp_id&vl='+cp_id+'&tp=s&ky=cp_type&vl='+cp_type+'&tp=s&ky=tp&vl='+tp+'&tp=s&ky=tpid&vl='+tpid+'&tp=s&ky=runid&vl='+runid+'&tp=s&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
+    //let wrappedurl = 'http://'+'evbk.gamooga.com'+'/ev/?e='+eventToTrigger+'&c='+compid+'&v='+vid+'&ky=cp_type&vl='+cp_type+'&tp=s&ky=tp&vl='+tp+'&tp=s&ky=tpid&vl='+tpid+'&tp=s&ky=runid&vl='+runid+'&tp=s&ky=cp_id&vl='+cp_id+'&tp=s&s=abc&t=xyz&z='+td+'&redir='+urlToWrap;
+    console.log(wrappedurl);
+    //res.status(200).json({ 'url' : encodeURIComponent(wrappedurl)});//send(wrappedurl);
+    /*axios({
+      method:'POST',
+      url:'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref={{klix_test_aash.phone}}&long_url='+encodeURIComponent(wrappedurl),
+      headers:{
+        'Content-Type':'application/x-www-form-urlencoded',
+        Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
+      },
+    })*/
+    let shrturl = 'http://shorturl.karix.solutions/services/api/vlurlshortner?user_ref=9492794266&long_url='+encodeURIComponent(wrappedurl);
+    axios.get(shrturl,{
+      headers:{
+        //'Content-Type':'application/x-www-form-urlencoded',
+        Authentication: 'Bearer O3l5UsxIZAcJSbnvVmHm7g=='
+      }
+    }).then(function(response){
+      console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRResponse');
+      log.info(response);
+      console.log(response);
+      res.status(200);
+    }).catch(function(error){
+      console.log(error);
+    })
+});
 
 router.get('/smswebhook', function (req, res) {
   console.log('SMS get logs');
@@ -275,6 +329,48 @@ router.get('/implwebhook/unsubscribe/', function (req, res) {
   }
 });
 
+
+router.post('/wpsmscallback/', async (req, res) => {
+  let wtappsms = req.body;
+log.info(typeof wtappsms);
+console.log('body<><><><><><><><><><><><>',req.body);
+try{
+    if (typeof (wtappsms) == 'object') {
+        log.info(wtappsms);
+        let extra = wtappsms.recipient.reference.messageTag1;
+        let event_type = wtappsms.events.eventType;
+        if (event_type  == 'DELIVERY EVENTS'){//status == "Read" || status == "delivered" || status == "sent"){
+            console.log(extra)
+            var params = extra.split(';').reduce((arr, each) => {
+              arr[each.split(':')[0]] = each.split(':')[1]
+              return arr
+            },{})
+            console.log(params)
+            if(params['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
+              params['server'] = 'engageb.rsec.co.in';
+            } else if(params['compid']=='fcbe3928-6512-48a6-8cb5-c8c51e100539'){
+              params['server'] = 'js3in1.gamooga.com';
+            }else{
+              params['server'] = 'evbk.gamooga.com';
+            }
+            var details = Object.assign({},params,{event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status})
+              
+              //{...params,event_type,status:wtappsms.notificationAttributes.status,reason:wtappsms.notificationAttributes.reason,channel:wtappsms.channel,to_add:wtappsms.recipient.to,event:'_wpsms_'+wtappsms.notificationAttributes.status}
+            console.log(details);
+            log.info(details);
+            eventpush(details);
+        }
+    }
+  }catch (e){
+      log.info("Error in incoming data from value first", e);
+      res.writeHead(200);
+      res.end("ERROR");
+  }
+  res.writeHead(200);
+  res.end("OK");
+});
+
+/*
 router.post('/wpsmscallback', async (req, res) => {
     let wtappsms = req.body
     console.log(wtappsms)
@@ -318,7 +414,7 @@ router.post('/wpsmscallback', async (req, res) => {
     }
 })
  
-/*
+
   try {
       if (typeof (wtappsms) == 'object') {
           log.info(wtappsms);
