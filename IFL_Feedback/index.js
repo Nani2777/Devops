@@ -57,8 +57,7 @@ router.get('/ifli_non_hni/', async(req, res) => {
             res.status(404).send('ERROR')
         });
     } catch (e) {
-        res.status(500).send('ERROR')
-        
+        res.status(500).send('ERROR') 
     }
 
 })

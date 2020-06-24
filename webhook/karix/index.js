@@ -8,8 +8,8 @@ const log = require('../../logger');
 
 router.post('/wpsmscallback/', async (req, res) => {
     let wtappsms = req.body;
-  log.info(typeof wtappsms);
-  console.log('body<><><><><><><><><><><><>',req.body);
+    log.info('wpsmscallback',JSON.stringify(req.body))
+    console.log('wpsmscallback',req.body);
   try{
       if (typeof (wtappsms) == 'object') {
           log.info(wtappsms);

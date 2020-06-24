@@ -41,10 +41,12 @@ httpServer.listen(httpPort, () => {
 
 app.use('/gamooga-esp', apiRoutes);
 
-app.use("/logfiles", express.static(__dirname + "/logfiles"));
+//app.use("/logfiles", express.static(__dirname + "/logfiles"));
 
 app.get('/ping',function(req, res){
   res.status(200).send('Pong!')
+  log.info('Lub dub lub dub lub dub')
+  console.log('Yes i am in')
 })
 
 module.exports = app;
