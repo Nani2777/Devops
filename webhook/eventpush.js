@@ -5,6 +5,7 @@ const eventpush = function(data){
   try{
     if(data.vid){
       log.info('eventpush',data)
+      console.log('eventpush',data)
       let compid = data.comp_id ? data.comp_id : data.compid;
       var url = `http://${data.server}/ev/?c=${compid}&v=${data.vid}&e=${data.event}`
         Object.entries(data).forEach(
@@ -31,6 +32,7 @@ const eventpush = function(data){
     }
     else if(data.uid){
       log.info('eventpush',data)
+      console.log('eventpush',data)
       let compid = data.comp_id ? data.comp_id : data.compid;
       var url = `http://${data.server}/evwid/?c=${compid}&u=${data.uid}&e=${data.event}`
         Object.entries(data).forEach(
