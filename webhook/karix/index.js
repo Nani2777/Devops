@@ -49,7 +49,7 @@ router.post('/wpsmscallback/', async (req, res) => {
             }else{
               params['server'] = 'evbk.gamooga.com';
             }
-            var details = Object.assign({},params,{event_type,channel:wtappsms.channel,app_type:wtappsms.appDetails.type,to_add:wtappsms.eventContent.message.to,from_add:wtappsms.eventContent.message.from,id:wtappsms.eventContent.message.id,content_type:wtappsms.eventContent.message.contentType,mess_timestamp:wtappsms.events.timestamp,mess_date:wtappsms.events.date,event:'test'/* _wp_user_initiated */,res_data:JSON.stringify(wtappsms)})
+            var details = Object.assign({},params,{event_type,channel:wtappsms.channel,app_type:wtappsms.appDetails.type,to_add:wtappsms.eventContent.message.to,from_add:wtappsms.eventContent.message.from,id:wtappsms.eventContent.message.id,content_type:wtappsms.eventContent.message.contentType,mess_timestamp:wtappsms.events.timestamp,mess_date:wtappsms.events.date,event:/* test */'_wp_user_initiated',res_data:JSON.stringify(wtappsms)})
             
             function dataparse(attr) {
               return new Promise((resolve, reject) => {
