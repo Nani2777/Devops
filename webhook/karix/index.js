@@ -49,44 +49,24 @@ router.post('/wpsmscallback/', async (req, res) => {
             }else{
               params['server'] = 'evbk.gamooga.com';
             }
-            var details = Object.assign({},params,{event_type,channel:wtappsms.channel,app_type:wtappsms.appDetails.type,to_add:wtappsms.eventContent.message.to,from_add:wtappsms.eventContent.message.from,id:wtappsms.eventContent.message.id,content_type:wtappsms.eventContent.message.contentType,mess_timestamp:wtappsms.events.timestamp,mess_date:wtappsms.events.date,event:/* test */'_wp_user_initiated',res_data:JSON.stringify(wtappsms)})
-            
-            function dataparse(attr) {
-              return new Promise((resolve, reject) => {
-                Object.entries(attr).forEach(
-                  ([key,value]) => details[key.toLowerCase()] = value
-                )
-                resolve;
-              })
+            var targets = ['text','document','image','video','button','location','contacts'];
+            var mapers = {document:"document",image:"image",video:"video"};
+            var maps2 = {text:"text",button:"button",location:"location"};
+            var data = targets.reduce( (acc,each) => {
+            var values = wtappsms.eventContent
+            if(values.message[each]) {
+              mapers[each]?values.message[each]['attachmentType'] = each : {}
+              maps2[each]?wtappsms.eventContent.message.contextmid?values.message[each]['contextmid'] = wtappsms.eventContent.message.contextmid : {}:{}
+              if(each == 'contacts'){
+                values.message[each]['contacts'] = JSON.stringify(values.message[each])
+              }
+              acc.push(values.message[each])
             }
-            if(wtappsms.eventContent.message.text || wtappsms.eventContent.message.location){
-              var data = wtappsms.eventContent.message.text ? wtappsms.eventContent.message.text : wtappsms.eventContent.message.location;
-              dataparse(data);
-            }
-            if(wtappsms.eventContent.message.document || wtappsms.eventContent.message.image){
-              details['attachment_type'] = wtappsms.eventContent.message.attachmentType
-              var data = wtappsms.eventContent.message.document ? wtappsms.eventContent.message.document : wtappsms.eventContent.message.image;
-              dataparse(data);
-            }
-            /* switch (wtappsms.eventContent.message){
-              case wtappsms.eventContent.message.text:
-                dataparse(wtappsms.eventContent.message.text);
-                break;
-              case wtappsms.eventContent.message.document:
-                details['attachment_type'] = wtappsms.eventContent.message.attachmentType
-                dataparse(wtappsms.eventContent.message.document);
-                break;
-              case wtappsms.eventContent.message.image:
-                details['attachment_type'] = wtappsms.eventContent.message.attachmentType
-                dataparse(wtappsms.eventContent.message.image);
-                break;
-            } */
-            /* if(wtappsms.eventContent.message.document){
-              details['attachment_type'] = wtappsms.eventContent.message.attachmentType
-              Object.entries(wtappsms.eventContent.message.document).forEach(
-                ([key,value]) => details[key.toLowerCase()] = value
-              );
-            } */
+            return acc
+            },[]).filter(each => {
+              return each
+            })
+            var details = Object.assign({},params,data[0],{event_type,channel:wtappsms.channel,app_type:wtappsms.appDetails.type,to_add:wtappsms.eventContent.message.to,from_add:wtappsms.eventContent.message.from,id:wtappsms.eventContent.message.id,content_type:wtappsms.eventContent.message.contentType,mess_timestamp:wtappsms.events.timestamp,mess_date:wtappsms.events.date,event:'test'/* '_wp_user_initiated' */,res_data:JSON.stringify(wtappsms)})
             console.log(details,'<><><><>user initiated')
             log.info(details,'*******Userinitiated')
             eventpush(details);
