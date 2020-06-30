@@ -40,6 +40,8 @@ router.post('/wpsmscallback/', async (req, res) => {
             var params = {};
             if(wtappsms.eventContent.message.to == '918142260005'){
               params['compid'] = 'c9f594dd-9492-4d90-b948-dfd58315a0bb';
+            }else if(wtappsms.eventContent.message.to == '919845315868'){
+              params['compid'] = '9c60c5cc-b194-48a4-8585-26205ad4e4f3';
             }
             params['uid'] = wtappsms.eventContent.message.from.substr(2);
             if(params['compid'] == '6a7ba941-3460-4ff6-b36b-1e1d214415c5'){
