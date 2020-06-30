@@ -67,7 +67,7 @@ router.post('/wpsmscallback/', async (req, res) => {
               var data = wtappsms.eventContent.message.document ? wtappsms.eventContent.message.document : wtappsms.eventContent.message.image;
               dataparse(data);
             } */
-            var targets = ['text','document','image','video','button','location','contacts'];
+            var targets = ['text','document','image','video','button','location','contacts','voice'];
             var mapers = {document:"document",image:"image",video:"video"};
             var maps2 = {text:"text",button:"button",location:"location"};
             var data = targets.reduce( (acc,each) => {
