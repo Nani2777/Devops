@@ -17,12 +17,18 @@ router.post('/espcallback/', async (req, res) => {
                 let tpid = each.tpid;
                 let mail_type = each.mail_type;
                 let email = each.emailid;
+                let policy_no = each.policy || '-';
+                let campaign_tag = each.campaign_tag;
+                let run_id = each.run_id || '-';
                 let custom_args = {
                     "cp_type": cp_type,
                     "cp_id": cp_id,
                     "tpid": tpid,
                     "mail_type": mail_type,
-                    "email": email
+                    "email": email,
+                    "policy": policy_no,
+                    "campaign_tag":campaign_tag,
+                    "run_id":run_id
                 }
                 let event = "_email_" + each['event'];
                 if (event == "_email_dropped" || event == "_email_unsubscribe") {
